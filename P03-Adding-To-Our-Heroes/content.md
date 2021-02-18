@@ -71,31 +71,7 @@ class Hero:
         self.current_health = starting_health
 ```
 
-Ok, we can initialize a hero! Now let's test it:
-
-> [action]
->
-> After completing the method, add a call to your newly created constructor at the bottom of the file. This will let you test what you just did.
->
-> **Hint:** The bottom of your file should look like this:
->
-```python
-if __name__ == "__main__":
-    # If you run this file from the terminal
-    # this block is executed.
-    my_hero = Hero("Grace Hopper", 200)
-    print(my_hero.name)
-    print(my_hero.current_health)
-```
-
-If you've done it correctly you should be able to set the values and see them in the terminal when running the file:
-
-```
-Grace Hopper
-200
-```
-
-Note that we can still provide a value for `starting_health` which replaces the default value of 100 that we gave in the `__init__` method! If when we instantiated our hero we had just put `Hero("Grace Hopper")`, then their `current_health` would've been 100!
+Great, now let's add an ability!
 
 # Create an add_ability method
 
