@@ -101,7 +101,7 @@ Run the `dog.py` file
 
 What do you see?
 
-<details>
+<details closed>
 <summary>Solution</summary>
 <br>
 This will print:
