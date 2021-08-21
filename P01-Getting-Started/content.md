@@ -1,11 +1,6 @@
----
-title: Build Hero Class
-slug: build-hero-class
----
+# Getting Started: Build a Hero Class
 
-> [action]
->
-> Let's use what we've learned to build the hero class in a file named `hero.py`. Create that file right now. **Not all of the code for this tutorial will be contained in this file!**
+Let's use what we've learned to build the hero class in a file named `hero.py`. Create that file right now. **Not all of the code for this tutorial will be contained in this file!**
 
 Before we get started, it's important to know how we will build out this file:
 
@@ -25,10 +20,8 @@ Here we define what we want our `Hero` class to look like. Each hero will need a
 
 Let's walk through each method and smoke test them as we go.
 
-> [action]
->
-> Build out the Hero class constructor:
->
+Build out the Hero class constructor:
+
 ```python
 class Hero:
     # We want our hero to have a default "starting_health",
@@ -39,7 +32,7 @@ class Hero:
           starting_health: Integer
           current_health: Integer
         '''
->
+
     # we know the name of our hero, so we assign it here
     self.name = name
     # similarly, our starting health is passed in, just like name
@@ -51,12 +44,10 @@ class Hero:
 
 Ok, we can initialize a hero! Now let's test it:
 
-> [action]
->
-> After completing the method, add a call to your newly created constructor at the bottom of the file. This will let you test what you just did.
->
-> **Hint:** The bottom of your file should look like this:
->
+After completing the method, add a call to your newly created constructor at the bottom of the file. This will let you test what you just did.
+
+**Hint:** The bottom of your file should look like this:
+
 ```python
 if __name__ == "__main__":
     # If you run this file from the terminal
@@ -87,10 +78,8 @@ Since we haven't added abilities and armor to our heroes, we'll start by randoml
 
 The core functionality for this method will come from calling methods that exist in the current instantiated object (using `self`) as well as calling methods on the `opponent` object that is passed in as a parameter.
 
-> [action]
->
-> Build the `fight` method for the Hero class! Take everything you've learned so far in this chapter and apply it to creating this method!
->
+Build the `fight` method for the Hero class! Take everything you've learned so far in this chapter and apply it to creating this method!
+
 ```python
 def fight(self, opponent):
   ''' Current Hero will take turns fighting the opponent hero passed in.

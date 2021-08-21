@@ -1,7 +1,4 @@
----
-title: Add Abilities and Armor to our Heroes
-slug: add-ability-and-armor-classes
----
+# Add Abilities and Armor to our Heroes
 
 In this chapter we are going to add the classes we built for Armor and Abilities to our Hero class so each of our heroes is unique and each battle has the potential to have a different outcome.
 
@@ -35,18 +32,15 @@ Here we define what we want our `Hero` class to look like. Each hero should have
 
 Let's walk through each method and smoke test them as we go.
 
-> [action]
-> First, in your project directory, return to the file that holds your Hero class
->
->
-> Build out the Hero class constructor:
->
+First, in your project directory, return to the file that holds your Hero class
+
+Build out the Hero class constructor:
+
 ```python
 from ability import Ability
 from armor import Armor
->
+
 class Hero:
->
     # We want our hero to have a default "starting_health",
     # so we can set that in the function header.
     def __init__(self, name, starting_health=100):
@@ -57,7 +51,7 @@ class Hero:
           starting_health: Integer
           current_health: Integer
       '''
->
+
         # abilities and armors don't have starting values,
         # and are set to empty lists on initialization
         self.abilities = list()
@@ -77,15 +71,12 @@ Great, now let's add an ability!
 
 We have abilities and Heroes, but our Heroes can't yet use abilities. Let's give our heroes abilities they can use.
 
-> [action]
->
-> Use the append method to add a new ability to your hero's `abilities` list.
+Use the append method to add a new ability to your hero's `abilities` list.
 
->
 ```python
 def add_ability(self, ability):
     ''' Add ability to abilities list '''
->
+
     # We use the append method to add ability objects to our list.
     self.abilities.append(ability)
 ```
@@ -112,9 +103,7 @@ This output may look confusing at first, but let's break it down.
 
 Python uses brackets `[]` to denote a list. Our output is showing us that `hero.abilities` is a list with a single item. This item is an object with the class name Ability.
 
-> [action]
->
-> Try adding a second ability and see how it looks when you print it to the terminal.
+Try adding a second ability and see how it looks when you print it to the terminal.
 
 # Create the attack method
 
@@ -151,16 +140,14 @@ Woof!
 Woof!
 ```
 
-> [action]
->
-> Use this pattern to find the attack of each ability, but total them all up to find the strength of your hero's attack.
->
+Use this pattern to find the attack of each ability, but total them all up to find the strength of your hero's attack.
+
 ```python
     def attack(self):
       '''Calculate the total damage from all ability attacks.
           return: total_damage:Int
       '''
->
+
       # start our total out at 0
       total_damage = 0
         # loop through all of our hero's abilities
@@ -173,10 +160,8 @@ Woof!
 
 When you're ready, let's test it!
 
-> [action]
->
-> Test out your code using these method calls at the bottom of your file.
->
+Test out your code using these method calls at the bottom of your file.
+
 ```Python
 if __name__ == "__main__":
     # If you run this file from the terminal

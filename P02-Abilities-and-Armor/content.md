@@ -1,7 +1,4 @@
----
-title: Build Ability and Armor Classes
-slug: build-ability-and-armor-classes
----
+# Build Ability and Armor Classes
 
 In this chapter we are going to make classes for Armor and Abilities so each of our heroes is unique and each battle has the potential to have a different outcome.
 
@@ -39,16 +36,13 @@ Our hero will need an ability to be able to save the world. let's start by creat
 
 Let's give our `Ability` class two simple methods, `__init__`, and `attack`.
 
-> [action]
->
-> First, in your project directory, make a file named `ability.py` to contain all the code for the Ability class
+First, in your project directory, make a file named `ability.py` to contain all the code for the Ability class
 
 ## Set initial values with a constructor
 
-> [action]
->
-> Use a constructor to set the name and attack strength for our `Ability` just like you did in the last section with `name` in our `Dog` class.
->
+
+Use a constructor to set the name and attack strength for our `Ability` just like you did in the last section with `name` in our `Dog` class.
+
 ```python
 class Ability:
     def __init__(self, name, max_damage):
@@ -56,7 +50,7 @@ class Ability:
        Initialize the values passed into this
        method as instance variables.
         '''
->
+
         # Assign the "name" and "max_damage"
         # for a specific instance of the Ability class
         self.name = name
@@ -65,10 +59,8 @@ class Ability:
 
 Our next task is to write the `attack` method. To make it more interesting we don't want our Hero to have the same attack value every time. We want to have some range of values that are possible when our Hero attacks. We'll use the random module for this functionality
 
-> [action]
->
-> Import `random` at the very top of your file using the following command.
->
+Import `random` at the very top of your file using the following command.
+
 ```python
 import random
 ```
@@ -83,19 +75,17 @@ random.randint(2, 7)
 
 This will return back to you some value between and including 2 and 7.
 
-> [action]
->
-> Use this knowledge to return a random value between 0 and the strongest attack an ability can produce.
->
+Use this knowledge to return a random value between 0 and the strongest attack an ability can produce.
+
 ```python
 class Ability:
->
+
 # code for __init__ method
 ...
->
+
   def attack(self):
       ''' Return a value between 0 and the value set by self.max_damage.'''
->
+
       # Pick a random value between 0 and self.max_damage
       random_value = random.randint(0,self.max_damage)
       return random_value
@@ -105,17 +95,15 @@ class Ability:
 
 You don't want to write a bunch of code without testing to see if it runs.
 
-> [action]
->
-> When you finish the `Ability` class, you can test your work by calling your new methods at the end of the file like this:
->
+When you finish the `Ability` class, you can test your work by calling your new methods at the end of the file like this:
+
 ```python
 import random
->
+
 class Ability:
 # ability class code
 ...
->
+
 if __name__ == "__main__":
     # If you run this file from the terminal
     # this block is executed.
@@ -136,31 +124,25 @@ Debugging Ability
 But your values may be different since we're using a random number generator.
 
 # Add Armors
-> [action]
->
-> In your project directory make a file named `armor.py` and place the Armor class inside of it
->
-> **HINT:** You would write this in a similar way you  wrote the `Ability` class
 
+In your project directory make a file named `armor.py` and place the Armor class inside of it
+
+**HINT:** You would write this in a similar way you  wrote the `Ability` class
 
 You can't go into battle unprepared. We need to give our heroes armor that they can use to defend themselves.
 
-> [action]
->
-> Create a new class called `Armor` that contains two methods: `__init__` and `block`.
->
-> **HINT:** You would write this in a similar way you  wrote the `__init__` and `attack` methods for the `Ability` class
+Create a new class called `Armor` that contains two methods: `__init__` and `block`.
+
+**HINT:** You would write this in a similar way you  wrote the `__init__` and `attack` methods for the `Ability` class
 
 The block method should return an integer between 0 and the max_block strength.
 
 For this class, we will _not_ give you the code. Take your learnings from making the `Ability` class and apply them here, there are a lot of similarities. Remember to remove the `pass` line
 
-> [action]
->
-> Build the Constructor
->
-> **HINT:** Check your `Ability` class and model from that `__init__` method if you get stuck.
->
+Build the Constructor
+
+**HINT:** Check your `Ability` class and model from that `__init__` method if you get stuck.
+
 ```python
 class Armor:
     def __init__(self, name, max_block):
@@ -174,12 +156,9 @@ class Armor:
 
 Let's create a method that we can call that will calculate the amount we will block with.
 
-> [action]
->
-> Build the `block` method for the Armor class
->
-> **HINT:** Check your `Ability` class and model from the `attack` method if you get stuck.
->
+Build the `block` method for the Armor class
+**HINT:** Check your `Ability` class and model from the `attack` method if you get stuck.
+
 ```python
 def block(self):
     '''
@@ -191,10 +170,8 @@ def block(self):
 
 When you're done, add to the test code you wrote earlier to check your answer:
 
-> [action]
->
-> Create an instance of `Armor` and check that your properties and methods work correctly:
->
+Create an instance of `Armor` and check that your properties and methods work correctly:
+
 ```python
 if __name__ == "__main__":
     # If you run this file from the terminal

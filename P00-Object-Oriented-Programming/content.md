@@ -1,7 +1,4 @@
----
-title: "Object Oriented Programming: Dogs"
-slug: superhero-objects
----
+# Object Oriented Programming: Dogs
 
 ## Superhero Dueler
 
@@ -71,8 +68,6 @@ This is a required method that every class must have. **`__init__` describes how
 
 self is a keyword used in classes to refer to the specific object built from the class. If we created 100 dog objects, how does each dog know what the values of its own properties are? Is it a golden retriever, or a poodle? Does it have brown eyes or blue? **The `self` keyword allows an object to keep track of its own properties, separate from any other object of the same class.** It is also a _required_ property to every method within a class, so make sure to **always have it as the first property to any method in a class that you create.**
 
-> [info]
->
 > Python will implicitly pass `self` as the first argument to any method call, so you don't need to explicitly state it!
 
 
@@ -106,7 +101,7 @@ Run the `dog.py` file
 
 What do you see?
 
-<details open>
+<details>
 <summary>Solution</summary>
 <br>
 This will print:
