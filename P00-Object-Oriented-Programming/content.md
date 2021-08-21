@@ -48,12 +48,11 @@ When we create an object of a class in memory, this is called **instantiation**.
 
 Let's make a simple class called `Dog`.
 
->[action]
->Make the file `dog.py`
->
->```$ touch dog.py```
->
-> Now define a class using the `class` keyword in Python, and we're going to add one **property** to the Dog class called `name`:
+Make the file `dog.py`
+
+```$ touch dog.py```
+
+Now define a class using the `class` keyword in Python, and we're going to add one **property** to the Dog class called `name`:
 
 ```python
 # dog.py
@@ -81,53 +80,48 @@ self is a keyword used in classes to refer to the specific object built from the
 
 Now to use this **Class** or _blueprint_ of a dog, we have to run it, which saves it into memory and allows us to use it to make instances of the dog class, called **instances**. As we said before, the process of creating an object in memory from the class definition is called **instantiation**. Let's make an instance of the Dog class:
 
->[action]
-> Instantiate a dog instance:
->
+Instantiate a dog instance:
+
 ```python
 # dog.py
 class Dog:
     def __init__(self, name):
         self.name = name
         print("dog initialized!")
->
+
 # instantiation call that creates a Dog object:
 Dog("Rex")
 ```
 
 <!-- -->
 
->[info]
->
->Properties of an instance are also called **instance variables**.
+> Properties of an instance are also called **instance variables**.
 
 Now that we've defined the Class and then instantiated an instance of it we can run the whole file to see the print statements.
 
->[action]
->Run the `dog.py` file
 
->```$ python3 dog.py```
+Run the `dog.py` file
 
->What do you see?
+```$ python3 dog.py```
 
-Here's the solution:
+What do you see?
 
-> [solution]
->
-> This will print:
->
+<details open>
+<summary>Solution</summary>
+<br>
+This will print:
+
 ```bash
 dog initialized!
 ```
+</details>
 
 Awesome! Our dog has been initialized, but how do we do anything with it? How do we access its name? In order to do this, **we have to save our instance to a variable!**
 
 Remember that variables are just like empty boxes, all they do is hold stuff for us. In this case, we want the `my_dog` variable to hold an instance of our `Dog` class. Without saving the instance to a variable, the instance just lives in memory, but we won't be able to reference or access it.
 
-> [action]
->
-> Update your code to save the instance to the `my_dog` variable:
->
+Update your code to save the instance to the `my_dog` variable:
+
 ```python
 # dog.py
 class Dog:
@@ -144,15 +138,18 @@ print(my_dog.name)
 
 What do you think this will print?
 
->[solution]
->
-> This will print:
->
+<details open>
+<summary>Solution</summary>
+<br>
+This will print:
+
 ```bash
 dog initialized! # From the init
 <__main__.Dog object at 0x101488278> # The Dog Class
 Rex # Your dog's name
 ```
+
+</details>
 
 Note here that for this instance of a dog, `self.name` refers to `Rex`!
 
@@ -180,10 +177,8 @@ This works if we want one, specific object to have this property. However, if we
 
 To do this, we need to update the `__init__` constructor:
 
->[action]
->
-> Here we go:
->
+Here we go:
+
 ```python
 # dog.py
 class Dog:
@@ -191,13 +186,13 @@ class Dog:
         self.name = name
         self.breed = breed
         print("dog initialized!")
->
+
 my_dog = Dog("Rex", "SuperDog")
 print(my_dog.breed)
 ```
->
->**Watch Out** - if you add a property upon initialization, it is REQUIRED and you will get an error if you don't provide a value for it during initialization. So only put required properties into __init__. See an example of this error below when we don't provide a "breed" value:
->
+
+> **Watch Out** - if you add a property upon initialization, it is REQUIRED and you will get an error if you don't provide a value for it during initialization. So only put required properties into __init__. See an example of this error below when we don't provide a "breed" value:
+
 ```
 Traceback (most recent call last):
   File "dog.py", line 6, in <module>
@@ -205,7 +200,7 @@ Traceback (most recent call last):
 TypeError: __init__() missing 1 required positional argument: 'breed'
 ```
 
->Can you produce this error yourself by removing the breed argument "SuperDog" from your `Dog("Rex", "SuperDog")` call?
+Try to produce this error yourself by removing the breed argument "SuperDog" from your `Dog("Rex", "SuperDog")` call?
 
 # Add an Instance Method
 
@@ -213,10 +208,8 @@ A class has really two parts: **properties** (variables) which you've seen, and 
 
 What are some actions a dog can take? How about barking? What other actions can a dog do?
 
-> [action]
->
-> Let's define our first method called `bark`. This will let us call something like this: `my_dog.bark()`. And then we can print "Woof!"
->
+Let's define our first method called `bark`. This will let us call something like this: `my_dog.bark()`. And then we can print "Woof!"
+
 ```python
 # dog.py
 class Dog:
@@ -225,12 +218,12 @@ class Dog:
         self.name = name
         self.breed = breed
         print("dog initialized!")
->
+
     # Methods are defined as their own named functions inside the class
     # Remember to put the "self" parameter every time we make a class method!
     def bark(self):
         print("Woof!")
->
+
 my_dog = Dog("Rex", "SuperDog")
 # Remember python implicitly passes in "self",
 # so we don't need to pass it in when we call the function!
@@ -239,19 +232,19 @@ my_dog.bark()
 
 Our `Dog` class has a method called `bark` that when called will print out `Woof!` to the terminal. The syntax is similar to the syntax that we've already seen when building functions but, there are some key differences.
 
->[action]
->Run the `dog.py` file
 
->```$ python3 dog.py```
+Run the `dog.py` file
 
->What do you see?
+```$ python3 dog.py```
+
+What do you see?
 
 The `bark()` method is nested within in a class definition: `class Dog:`. This defines the `bark()` method as a member of the `Dog` class.
 
 We can't call this method on the class. We can't call `Dog.bark()` and expect something to happen. That would be like asking the blueprint of a dog to bark. That does't make sense! Instead we need to make an **Instance** of the `Dog` class and then ask that instance to bark. That is why methods defined in this way are called **Instance Methods**.
 
->[info]
->Remember classes are groups of data and actions, data attached to classes are key-value pairs called **Properties**, and the actions that class can take are called **Methods**.
+
+> Remember classes are groups of data and actions, data attached to classes are key-value pairs called **Properties**, and the actions that class can take are called **Methods**.
 
 # So Far... Procedural vs Object Oriented Programming
 
@@ -269,9 +262,8 @@ Classes are very modular, since you can write a class in one file, and then use 
 
 Let's import the Dog class into a new file were we'll make some instances of Dog.
 
->[action]
->Make a new file called `my_dogs.py`. Inside there write the following code:
->
+Make a new file called `my_dogs.py`. Inside there write the following code:
+
 ```python
 # my_dogs.py
 import dog
@@ -285,24 +277,20 @@ You'll notice that if you run `my_dogs.py` the following will display in the ter
 Woof!
 ```
 
-> [action]
->
-> Next let's move our code that calls the Dog class out of the `dog.py` file and into the `my_dogs.py` file.
->
+Next let's move our code that calls the Dog class out of the `dog.py` file and into the `my_dogs.py` file.
+
 ```python
 # my_dogs.py
 import dog # we need to specify exactly what we want
->
+
 my_dog = dog.Dog("Rex", "SuperDog")
 my_dog.bark()
 ```
 
 Now that we've moved the instantiation and call to the `bark` method into `my_dogs.py`, we can remove this code from `dog.py`:
 
-> [action]
->
-> Refactor `dog.py` to remove the lines you just put in `my_dogs.py`:
->
+Refactor `dog.py` to remove the lines you just put in `my_dogs.py`:
+
 ```python
 # dog.py
 class Dog:
@@ -310,23 +298,21 @@ class Dog:
         self.name = name
         self.breed = breed
         print("dog initialized!")
->
+
     def bark(self):
         print("Woof!")
 ```
 
 Now run `$ python3 my_dogs.py`. You should see no difference.
 
-> [challenge]
->
-> How could we clean this up?
->
-> **hint:** use [from](https://realpython.com/absolute-vs-relative-python-imports/#syntax-of-import-statements)
+Try to clean this code up — try to "refactor" it.
+
+**hint:** use [from](https://realpython.com/absolute-vs-relative-python-imports/#syntax-of-import-statements)
 
 <!-- -->
 
->[info]
->You just **Refactored** your code. That means that you changed the way it was written to be cleaner and more modular, but it is functionally equivalent to before. Great work!
+
+> You just **Refactored** your code. That means that you changed the way it was written to be cleaner and more modular, but it is functionally equivalent to before. Great work!
 
 ## A Note on Scope and Encapsulation
 
@@ -374,15 +360,13 @@ In this example we have declared our message variable in a 'global scope'. That 
 
 # Make Another Dog
 
-> [action]
->
-> If we want another dog we can create a new dog with the name Annie this way.
->
+If we want another dog we can create a new dog with the name Annie this way.
+
 ```python
 # my_dogs.py
 import dog
 ...
->
+
 my_other_dog = dog.Dog("Annie", "SuperDog")
 print(my_other_dog.name)
 ```
@@ -412,14 +396,12 @@ Great work! Let's make this superhero dueler!
 
 Want more practice? Complete the following to sharpen your skills in this chapter!
 
-> [challenge]
->
-> You like dogs! Try these challenges:
->
-> 1. Make three dogs with fun names and breeds
-> 1. Write two new methods to have the dogs sit and roll over (just print "<<DOG'S NAME>> sits", "<<DOG'S NAME>> rolls over").
-> 1. Have one dog bark, one sit, and one roll over.
->
-> Notice how each dog displays it's unique name when you print its name property. Do you remember why this is?
->
-> Notice how each dog makes the same sound "Woof!" when it barks. Why is this?
+You like dogs! Try these challenges:
+
+1. Make three dogs with fun names and breeds
+1. Write two new methods to have the dogs sit and roll over (just print "<<DOG'S NAME>> sits", "<<DOG'S NAME>> rolls over").
+1. Have one dog bark, one sit, and one roll over.
+
+Notice how each dog displays it's unique name when you print its name property. Do you remember why this is?
+
+Notice how each dog makes the same sound "Woof!" when it barks. Why is this?
