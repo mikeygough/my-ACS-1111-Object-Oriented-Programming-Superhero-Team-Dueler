@@ -11,6 +11,6 @@ Ever wondered which of your favorite super heroes would win in a fight? Team the
 
 Read and complete these chapters in order
 
-1. [Intro to Object Oriented Programming](P00-Object-Oriented-Programming/content)
-1. [Getting Started with Your Arena](P01-Getting-Started/content)
-1. 
+1. [Intro to Object Oriented Programming](P00-Object-Oriented-Programming/content.md)
+1. [Getting Started with Your Arena](P01-Getting-Started/content.md)
+1.
