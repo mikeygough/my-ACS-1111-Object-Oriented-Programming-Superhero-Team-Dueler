@@ -101,7 +101,7 @@ Run the `dog.py` file
 
 What do you see?
 
-<details closed>
+<details>
 <summary>Solution</summary>
 <br>
 This will print:
@@ -133,7 +133,7 @@ print(my_dog.name)
 
 What do you think this will print?
 
-<details open>
+<details>
 <summary>Solution</summary>
 <br>
 This will print:

@@ -1,7 +1,4 @@
----
-title: Inheritance
-slug: inheritance
----
+# Inheritance
 
 One of the great features of object oriented programming is the idea of **inheritance**. Inheritance comes in handy because it allows for additional ways to reuse code.
 
@@ -76,33 +73,31 @@ Woof! Woof!
 
 In this example `Dog` is our **subclass** and it will inherit everything from its superclass. This allows us to write specific functionality for `Dog` while keeping all the original functionality that was already given to us in `Animal`. This is also why we did _not_ need to write an `__init__` method for `Dog`: it just uses the same one as `Animal`!
 
-> [info]
->
 > Note the comment in the previous code snippet. Our `Dog` class takes in `Animal` as its parameter, which signals that `Dog` is a subclass of `Animal`, as all `Dogs` are created from `Animals`, and not just plain `objects`
 
 Let's try this out ourselves now:
 
->[action]
->Create the file `animal.py` file
->
+Create the file `animal.py` file
+
 ```bash
 $ touch animal.py
 ```
->
-> Create a `class` named `Animal` which has the methods `eat` and `drink` as well as the property `name`.
->
-> The eat method should print the animal's name and "is eating"
->
-> The drink method should print the animal's name and "is drinking"
->
-> Once you do that, in the same file, create the `Frog` class, which is a subclass of `Animal`, and has the method `jump`, which prints the frog's name and "is jumping"
->
-> Finally, test your code by instantiating one `Animal` and one `Frog`, and making sure that your `Frog` object can eat, drink, and jump, and that your `Animal` can eat and drink.
+Create a `class` named `Animal` which has the methods `eat` and `drink` as well as the property `name`.
+
+The eat method should print the animal's name and "is eating"
+
+The drink method should print the animal's name and "is drinking"
+
+Once you do that, in the same file, create the `Frog` class, which is a subclass of `Animal`, and has the method `jump`, which prints the frog's name and "is jumping"
+
+Finally, test your code by instantiating one `Animal` and one `Frog`, and making sure that your `Frog` object can eat, drink, and jump, and that your `Animal` can eat and drink.
 
 Once you've tried it, check your code against the provided solution below:
 
->[solution]
->
+<details>
+<summary>Solution</summary>
+<br>
+
 ```py
 #animal.py
 class Animal:
@@ -120,13 +115,14 @@ class Frog(Animal):
         print('{} is jumping'.format(self.name))
 ```
 
+</details>
+
+
 Let's use what we learned here to give our superheroes more options for attacking.
 
 # Weapon Class
-> [action]
->
-> In your project directory, make a file named `weapon.py` to contain the Weapon class
 
+In your project directory, make a file named `weapon.py` to contain the Weapon class
 
 One of the powerful features of Object Oriented Programming has a large scary name but refers to a pretty simple concept: **Polymorphism**.
 
@@ -140,12 +136,10 @@ For example, if the Weapon has a `max_damage` value of 80, then the Weapon's att
 
 **NOTE:** Make sure to use integer division ( Using the `//` operator) to be certain that you return an integer. This way if the `max_damage` value was 57, it will return 28 instead of 28.5
 
-> [action]
->
-> Write the `attack` method for our new `Weapon` class.
->
-> **HINT:** Use what you learned for the `attack` method in the `Ability` class if you get stuck.
->
+Write the `attack` method for our new `Weapon` class.
+
+**HINT:** Use what you learned for the `attack` method in the `Ability` class if you get stuck.
+
 ```python
 class Weapon(Ability):
     def attack(self):
@@ -159,21 +153,19 @@ class Weapon(Ability):
 
 Now that we have a weapon, we need to allow heroes to add a weapon for them to use. You will do this one on your own as well, refer to your other `add` methods for guidance.
 
-> [action]
->
-> Make sure to import the Weapon class into your Hero class
->
-> Add the following to the Hero class:
->
-> **HINT:** Remember, self.abilities is just a list!
->
+Make sure to import the Weapon class into your Hero class
+
+Add the following to the Hero class:
+
+**HINT:** Remember, self.abilities is just a list!
+
 ```python
 from weapon import Weapon
->
+
 class Hero:
     # The code you have already written should be here.  
     # Add the following method to your hero class...
->
+
     def add_weapon(self, weapon):
         '''Add weapon to self.abilities'''
         # TODO: This method will append the weapon object passed in as an
@@ -186,10 +178,8 @@ class Hero:
 
 Use these tests to make sure you implemented `Weapon` correctly:
 
-> [action]
->
-> Test out your code using these method calls at the bottom of your file.
->
+Test out your code using these method calls at the bottom of your file.
+
 ```python
 if __name__ == "__main__":
     # If you run this file from the terminal
@@ -208,9 +198,7 @@ This is called **method overriding** and it is a form of **Polymorphism. It allo
 
 # Build A Team class
 
-> [action]
->
->In your project directory, make a 'team.py' file to contain the Team class
+In your project directory, make a 'team.py' file to contain the Team class
 
 Superheroes should be team players, so let's create a team class that can manage all of our superheroes.
 
@@ -233,18 +221,14 @@ Rather, the `Team` class **contains** `Hero` objects (using a list), see below f
 
 In a similar manner, your `Hero` has a list of abilities and armors. This does not mean your `Hero` has `Ability` or `Armor` methods or properties, but that the `Hero` can contain `Ability` or `Armor` objects that have their own methods/properties, and can only be used/accessed by the `Ability` or `Armor` objects
 
-> [info]
->
 > This concept is known as **Aggregation** in OOP. Another way to think about it is that inheritance vs aggregation is "isa" vs. "hasa".
 >
 >For example, a `Weapon` "is a(n)" `Ability`, whereas a `Team` "has a" list of `Hero` objects
 
 # Build the Constructor
 
-> [action]
->
-> Build the constructor for the Team class:
->
+Build the constructor for the Team class:
+
 ```py
 class Team:
     def __init__(self, name):
@@ -258,10 +242,8 @@ class Team:
 
 This method should find a Hero by its name and remove them from the team's list of Heroes. If you cannot find a hero, return 0
 
-> [action]
->
-> Build the `remove_hero` method for the Team class:
->
+Build the `remove_hero` method for the Team class:
+
 ```python
 def remove_hero(self, name):
     '''Remove hero from heroes list.
@@ -285,12 +267,10 @@ def remove_hero(self, name):
 
 You'll build this one on your own. This method should print a list of all the teams heroes to the terminal.
 
-> [action]
->
-> Build the `view_all_heroes` function for the Team class:
->
-> **HINT:** Remember self.heroes is a list!
->
+Build the `view_all_heroes` function for the Team class:
+
+**HINT:** Remember self.heroes is a list!
+
 ```python
 def view_all_heroes(self):
     '''Prints out all heroes to the console.'''
@@ -302,12 +282,10 @@ def view_all_heroes(self):
 
 You will build this one on your own as well. We need to add heroes to our team. Let's create a method to do that. This will be similar to the methods we already wrote when adding armors to our hero.
 
-> [action]
->
-> Build the `add_hero` method for the the Team Class:
->
-> **HINT:** Remember self.heroes is a list!
->
+Build the `add_hero` method for the the Team Class:
+
+**HINT:** Remember self.heroes is a list!
+
 ```python
 def add_hero(self, hero)
   '''Add Hero object to self.heroes.'''
@@ -330,10 +308,8 @@ We'll use the automated testing tool [pytest](https://docs.pytest.org/en/latest/
 
 Pytest must be installed into your system first before you can use it. While you don't need pytest to run the tests included in this project, pytest gives a lot of additional helpful tools and loggin.
 
-> [action]
->
-> To install, simply open your terminal and type:
->
+To install, simply open your terminal and type:
+
 ```bash
 $ pip3 install pytest
 ```
@@ -354,18 +330,16 @@ This is pytest version 5.1.0, imported from /usr/local/lib/python3.7/site-packag
 
 Tests have been provided to help you with this assignment.
 
-> [action]
->
-> You can download the test [here](https://github.com/MakeSchool-Tutorials/Superhero-Team-Dueler/blob/master/hero_test.py) and place it in the same folder as `hero.py`
->
->To run the provided tests `cd` into to the project directory in the terminal
->
+You can download the test [here](https://github.com/Tech-at-DU/Superhero-Team-Dueler/blob/master/hero_test.py) and place it in the same folder as `hero.py`
+
+To run the provided tests `cd` into to the project directory in the terminal
+
 ```
 cd name-of-project-dir
 ```
->
-> then run
->
+
+then run
+
 ```
 pytest
 ```
@@ -384,9 +358,7 @@ This will run all tests in `hero_test.py` and stop after the first failure.
 
 For additional `pytest` options see their documentation [here](https://docs.pytest.org/en/latest/usage.html).
 
-> [action]
->
-> Make sure all the tests in the `hero_test.py` file pass.
+Make sure all the tests in the `hero_test.py` file pass.
 
 ## A Note About Python 2 vs Python 3
 One of the exciting features about python3 is that it supports unicode! This is great but it can cause compatibility issues when running python2.

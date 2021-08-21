@@ -1,7 +1,4 @@
----
-title: Team Attack and Defense
-slug: attack-defend
----
+# Team Attack and Defense
 
 ## Adding to the Hero class
 
@@ -33,10 +30,8 @@ Note that any methods that already exist in your code simply need to be refactor
 
 let's start by adding a way to track statistics. Create these new properties in the constructor to allow us to do this.
 
-> [action]
->
-> Update the constructor for your Hero class to track deaths and kills:
->
+Update the constructor for your Hero class to track deaths and kills:
+
 ```python
 def __init__(self, name, health=100):
     # The code you have already written goes here.
@@ -49,10 +44,8 @@ def __init__(self, name, health=100):
 
 Create this method that will act as a setter for `self.kills`.
 
-> [action]
->
-> Add the `add_kill` method to the Hero class:
->
+Add the `add_kill` method to the Hero class:
+
 ```python
 def add_kill(self, num_kills):
     ''' Update self.kills by num_kills amount'''
@@ -63,12 +56,10 @@ def add_kill(self, num_kills):
 
 You will do this one on your own. Create this method that will act as a setter for `self.deaths`.
 
-> [action]
->
-> Add the `add_death` method to the Hero class:
->
-> **HINT:** Remember self.deaths is a Int!
->
+Add the `add_death` method to the Hero class:
+
+**HINT:** Remember self.deaths is a Int!
+
 ```python
 def add_death(self, num_deaths):
     ''' Update deaths with num_deaths'''
@@ -80,16 +71,14 @@ def add_death(self, num_deaths):
 
 We want our fight method to update our statistics when things happen. Let's update `fight` to reflect what's happening during the battle.
 
-> [action]
->
-> Update the `fight` method in the Hero class to the following:
->
-> **HINT:** Remember to use your helper methods(i.e. add_kill and add_deaths) when you can!
->
+Update the `fight` method in the Hero class to the following:
+
+**HINT:** Remember to use your helper methods(i.e. add_kill and add_deaths) when you can!
+
 ```python
     def fight(self, opponent):
         #... The code you already wrote should be here ...
->
+
         # TODO: Refactor this method to update the following:
         # 1) the number of kills the hero (self) has when the opponent dies.
         # 2) then number of kills the opponent has when the hero (self) dies
@@ -102,10 +91,8 @@ We want our fight method to update our statistics when things happen. Let's upda
 
 We need to do some work to get our teams to battle each other. Let's start by making our `stats` method:
 
-> [action]
->
-> Build the `stats` method for your `Team` class:
->
+Build the `stats` method for your `Team` class:
+
 ```Python
 def stats(self):
     '''Print team statistics'''
@@ -118,12 +105,10 @@ def stats(self):
 
 This one you'll do on your own. Pay close attention to the `TODO` comment, as the pseudocode will help you in writing your real code:
 
-> [action]
->
-> Build the `revive_heroes` method for your `Team` class:
->
-> **HINT:** Remember to update the health for all heroes!
->
+Build the `revive_heroes` method for your `Team` class:
+
+**HINT:** Remember to update the health for all heroes!
+
 ```python
 def revive_heroes(self, health=100):
     ''' Reset all heroes health to starting_health'''
@@ -136,39 +121,37 @@ def revive_heroes(self, health=100):
 
 Alright, we got one more method to write! This one is a bit more challenging, so we've provided the first part of the function, but it will be up to you to fill in the rest:
 
-> [action]
->
-> Build the `attack` method for your `Team` class:
->
-> **HINT:** To use your helper methods whenever possible!
->
+Build the `attack` method for your `Team` class:
+
+**HINT:** To use your helper methods whenever possible!
+
 ```python
     def attack(self, other_team):
         ''' Battle each team against each other.'''
->        
+
         living_heroes = list()
         living_opponents = list()
->
+
         for hero in self.heroes:
             living_heroes.append(hero)
->
+
         for hero in other_team.heroes:
             living_opponents.append(hero)
->
+
         while len(living_heroes) > 0 and len(living_opponents)> 0:
             # TODO: Complete the following steps:
             # 1) Randomly select a living hero from each team (hint: look up what random.choice does)
             # 2) have the heroes fight each other (Hint: Use the fight method in the Hero class.)
             # 3) update the list of living_heroes and living_opponents
             # to reflect the result of the fight
->
+
 ```
 
 We have a way now for our teams to attack and track statistics! Now we just need a way for our users to make teams.
 
 ## Helpful tests
 
-In this section you can verify your code with the tests provided in [this](https://github.com/MakeSchool-Tutorials/Superhero-Team-Dueler/blob/master/team_test.py) file. You'll want to make sure the file exists in the same folder as your `hero.py` file.
+In this section you can verify your code with the tests provided in [this](https://github.com/Tech-at-DU/Superhero-Team-Dueler/blob/master/team_test.py) file. You'll want to make sure the file exists in the same folder as your `hero.py` file.
 
 You can run just the tests contained in this file by using the command:
 

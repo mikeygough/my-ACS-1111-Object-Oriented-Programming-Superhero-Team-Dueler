@@ -184,12 +184,10 @@ This method should receive an armor object that should be added to the list `sel
 
 This time, you'll need to write the code!
 
-> [action]
->
-> Create the `add_armor` method in the Hero class:
->
-> **HINT:** Use `add_ability` as a model for building this method
->
+Create the `add_armor` method in the Hero class:
+
+**HINT:** Use `add_ability` as a model for building this method
+
 ```python
 def add_armor(self, armor):
   '''Add armor to self.armors
@@ -204,12 +202,10 @@ Our hero needs to be able to block. This function will use our armors to defend 
 
 Make sure to take into account that there may not be any armor objects in the list. Or that if a hero is dead (has no health) they should have 0 defense.
 
-> [action]
->
-> Build the `defend` method in the Hero class.
->
-> **HINT:** How is it similar/different to the `attack` method?
->
+Build the `defend` method in the Hero class.
+
+**HINT:** How is it similar/different to the `attack` method?
+
 ```python
 def defend(self):
   '''Calculate the total block amount from all armor blocks.
@@ -224,8 +220,6 @@ When a hero takes damage, their `self.current_health` should be decreased. While
 
 In our case we want to call the defend method and change our hero's health based on the number and type of armors that our hero has.
 
->[info]
->
 > Methods that handle changes in properties are called **setters**. Methods that return the value of a property are called **getters.**
 
 Before we update `self.current_health` we need to call `self.defend` with the amount of damage that is being passed in. We can then subtract the defense from the amount coming in and subtract that number from the hero's health.
@@ -236,12 +230,10 @@ Let's walk through an example to make it clear:
   - Calling `self.defend(50)` returns 10.
   - 40 points should be subtracted from `self.current_health`.
 
-> [action]
->
-> Build the `take_damage` method for the Hero class:
->
-> **HINT:** Reference the bullets above: calculate the `defense` amount, subtract it from the `damage` amount, and then subtract that result from `self.current_health`
->
+Build the `take_damage` method for the Hero class:
+
+**HINT:** Reference the bullets above: calculate the `defense` amount, subtract it from the `damage` amount, and then subtract that result from `self.current_health`
+
 ```python
 def take_damage(self, damage):
   '''Updates self.current_health to reflect the damage minus the defense.
@@ -252,15 +244,14 @@ def take_damage(self, damage):
 
 Now time to test again!
 
-> [action]
->
-> Test your method by calling it using these values:
->
+
+Test your method by calling it using these values:
+
 ```python
 if __name__ == "__main__":
     # If you run this file from the terminal
     # this block of code is executed.
->
+
     hero = Hero("Grace Hopper", 200)
     shield = Armor("Shield", 50)
     hero.add_armor(shield)
@@ -278,12 +269,10 @@ You'll use a function to decide.
 
 Finish the `is_alive` method. This methods should check to see if the hero is still alive and return either `True` or `False` depending if the hero is alive or dead. You can determine the hero's state by checking their `current_health`.
 
-> [action]
->
-> Write the `is_alive` method for the Hero Class on your own:
->
-> **HINT:** Follow the `TODO` instructions for guidance.
->
+Write the `is_alive` method for the Hero Class on your own:
+
+**HINT:** Follow the `TODO` instructions for guidance.
+
 ```python
 def is_alive(self):  
   '''Return True or False depending on whether the hero is alive or not.
@@ -337,10 +326,8 @@ HeroName won!
 
 The core functionality for this method will come from calling methods that exist in the current instantiated object (using `self`) as well as calling methods on the `opponent` object that is passed in as a parameter.
 
-> [action]
->
-> Build the `fight` method for the Hero class! Remove the current implemenation and take everything you've learned so far in this chapter and apply it to re-writing this method!
->
+Build the `fight` method for the Hero class! Remove the current implemenation and take everything you've learned so far in this chapter and apply it to re-writing this method!
+
 ```python
 def fight(self, opponent):  
   ''' Current Hero will take turns fighting the opponent hero passed in.

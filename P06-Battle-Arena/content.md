@@ -15,21 +15,19 @@ Our heroes need somewhere to battle. let's have our user create our heroes with 
 
 Let's create some methods in an Arena class that  will allow for code reuse. Use your favorite loops with the `input()` function to build teams based on user input.
 
-> [action]
->
->In your project directory, create a new file named `arena.py` to contain the arena class
->
-> Start by making an `init` method for your Arena class. Follow the TODO comment, you shouldn't be adding more than 2 lines of code here:
->
-> **HINT:** Remember how you create other objects(like ability).
->
+In your project directory, create a new file named `arena.py` to contain the arena class
+
+Start by making an `init` method for your Arena class. Follow the TODO comment, you shouldn't be adding more than 2 lines of code here:
+
+**HINT:** Remember how you create other objects(like ability).
+
 ```python
 from ability import Ability
 from weapon import Weapon
 from armor import Armor
 from hero import Hero
 from team import Team
->
+
 class Arena:
     def __init__(self):
         '''Instantiate properties
@@ -42,18 +40,14 @@ class Arena:
 
 <!-- -->
 
-> [info]
->
 > Remember the difference between aggregation and inheritance here! An `Arena` has `Team` objects, it _does not inherit_ from `Team`, and `Team` _does not inherit_ from `Arena`
 
 # Prompting for Ability information
 
 Create this method that will allow users to create an ability for any hero:
 
-> [action]
->
-> Build the `create_ability` function for your Arena class
->
+Build the `create_ability` function for your Arena class
+
 ```python
     def create_ability(self):
         '''Prompt for Ability information.
@@ -62,7 +56,7 @@ Create this method that will allow users to create an ability for any hero:
         name = input("What is the ability name?  ")
         max_damage = input(
             "What is the max damage of the ability?  ")
->
+
         return Ability(name, max_damage)
 ```
 
@@ -70,12 +64,10 @@ Create this method that will allow users to create an ability for any hero:
 
 You will do this one on your own. Create this method that will allow users to create a weapon for any hero:
 
-> [action]
->
-> Build the `create_weapon` function for your Arena class
->
-> **HINT:** If you get stuck, look back at how `create_ability` is implemented.
->
+Build the `create_weapon` function for your Arena class
+
+**HINT:** If you get stuck, look back at how `create_ability` is implemented.
+
 ```python
     def create_weapon(self):
         '''Prompt user for Weapon information
@@ -91,12 +83,10 @@ You will do this one on your own. Create this method that will allow users to cr
 
 You will do this one on your own. Create this method that will allow users to create armor for any hero:
 
-> [action]
->
-> Build the `create_armor` function for your Arena class
->
-> **HINT:** If you get stuck, look back at how `create_ability` is implemented.
->
+Build the `create_armor` function for your Arena class
+
+**HINT:** If you get stuck, look back at how `create_ability` is implemented.
+
 ```python
     def create_armor(self):
         '''Prompt user for Armor information
@@ -112,10 +102,8 @@ You will do this one on your own. Create this method that will allow users to cr
 
 Create this method that will allow users to create heroes for their arena. One of our students, Tasfia Addirita, helped us out here by partially implementing this method. You'll need to fill in the rest:
 
-> [action]
->
-> Build the `create_hero` function for your Arena class
->
+Build the `create_hero` function for your Arena class
+
 ```py
     def create_hero(self):
         '''Prompt user for Hero information
@@ -140,10 +128,8 @@ Create this method that will allow users to create heroes for their arena. One o
 
 # Create Teams for your Arena
 
-> [action]
->
-> Build the `build_team_one` and `build_team_two` functions for your Arena class
->
+Build the `build_team_one` and `build_team_two` functions for your Arena class
+
 ```py
     # build_team_one is provided to you
     def build_team_one(self):
@@ -156,7 +142,7 @@ Create this method that will allow users to create heroes for their arena. One o
         for i in range(numOfTeamMembers):
             hero = self.create_hero()
             self.team_one.add_hero(hero)
->
+
     # Now implement build_team_two
     #HINT: If you get stuck, look at how build_team_one is implemented
     def build_team_two(self):
@@ -173,12 +159,10 @@ Create this method that will allow users to create heroes for their arena. One o
 
 Create this method that will allow teams to battle it out in your arena! Don't overthink this one, you've already written everything you need for it.
 
-> [action]
->
-> Build the `team_battle` function for your Arena class
->
-> **HINT:** Attack is a method of the Team class
->
+Build the `team_battle` function for your Arena class
+
+**HINT:** Attack is a method of the Team class
+
 ```py
     def team_battle(self):
         '''Battle team_one and team_two together.'''
@@ -191,10 +175,8 @@ Create this method that will allow teams to battle it out in your arena! Don't o
 # Get Battle Stats
 You may want to get statistics on how your battle went. Let's build that out now!
 
-> [action]
->
-> Build the `show_stats` function for your Arena class. We've built it out for Team One, you'll need to build it for Team Two!
->
+Build the `show_stats` function for your Arena class. We've built it out for Team One, you'll need to build it for Team Two!
+
 ```py
     def show_stats(self):
         '''Prints team statistics to terminal.'''
@@ -216,7 +198,7 @@ You may want to get statistics on how your battle went. Let's build that out now
         # TODO for each team, calculate the total kills and deaths for each hero,
         # find the average kills and deaths by dividing the totals by the number of heroes.
         # finally, divide the average number of kills by the average number of deaths for each team
->
+
         print("\n")
         print(self.team_one.name + " statistics: ")
         self.team_one.stats()
@@ -224,7 +206,7 @@ You may want to get statistics on how your battle went. Let's build that out now
         print(self.team_two.name + " statistics: ")
         self.team_two.stats()
         print("\n")
->
+
         # This is how to calculate the average K/D for Team One
         team_kills = 0
         team_deaths = 0
@@ -234,29 +216,25 @@ You may want to get statistics on how your battle went. Let's build that out now
         if team_deaths == 0:
             team_deaths = 1
         print(self.team_one.name + " average K/D was: " + str(team_kills/team_deaths))
->
+
         # TODO: Now display the average K/D for Team Two
->
+
         # Here is a way to list the heroes from Team One that survived
         for hero in self.team_one.heroes:
             if hero.deaths == 0:
                 print("survived from " + self.team_one.name + ": " + hero.name)
->
+
         #TODO: Now list the heroes from Team Two that survived
 ```
 
 <!-- -->
 
-> [challenge]
->
-> that `show_stats` function is pretty big. Break it up into smaller helper functions to make the function less bloated and practice good code quality.
+Here's a challenge. That `show_stats` function is pretty big. Break it up into smaller helper functions to make the function less bloated and practice good code quality.
 
 # Testing Arena
 
-> [action]
->
-> Test your functions by either creating a new test file and using pytest, or by calling your methods this way:
->
+Test your functions by either creating a new test file and using pytest, or by calling your methods this way:
+
 ```python
 if __name__ == "__main__":
     arena = Arena()
@@ -289,33 +267,31 @@ Our terminal game isn't really your typical game so our game loop will be a bit 
 
 Since our game doesn't rely on quickly rendering complicated scenes to the screen we're not so concerned with frame rate and by extension the time between calling our render function. Our program instead will pause for user input and take actions depending on that.
 
-> [action]
->
-> You can create a simple game loop in your `arena.py` file this way:
->
-> This code snippet will get you started with your game loop. Here on every loop we battle our teams, show the battle outcome, and check whether we want to loop again.
->
+You can create a simple game loop in your `arena.py` file this way:
+
+This code snippet will get you started with your game loop. Here on every loop we battle our teams, show the battle outcome, and check whether we want to loop again.
+
 ```python
 if __name__ == "__main__":
     game_is_running = True
->
+
     # Instantiate Game Arena
     arena = Arena()
->
+
     #Build Teams
     arena.build_team_one()
     arena.build_team_two()
->
+
     while game_is_running:
->
+
         arena.team_battle()
         arena.show_stats()
         play_again = input("Play Again? Y or N: ")
->
+
         #Check for Player Input
         if play_again.lower() == "n":
             game_is_running = False
->
+
         else:
             #Revive heroes to play again
             arena.team_one.revive_heroes()
@@ -325,12 +301,11 @@ if __name__ == "__main__":
 **Congrats on finishing the Superhero Team Dueler tutorial!!** This is just the start of what you can make. Add to your game with these stretch challenges.
 
 ## Stretch Challenges
-> [challenge]
->
-> * Add a command line interface that allows for recreating or editing  of teams.
-> * Allow use of only "authorized" abilites, weapons, and armor controlled by the Arena.
-> * Add tests that cover more edge cases.
-> * Change the way health is dealt out across the team. i.e. create heroes that may take damage first or may take more of the team's damage.
-> * Write additional classes that implement different ways to attack or defend -- i.e. create a relic class that only defends against abilities.
-> * Develop a way to steal weapons and abilities from the opposing team.
-> * Add rewards for team success such as weapon drops.
+
+* Add a command line interface that allows for recreating or editing  of teams.
+* Allow use of only "authorized" abilites, weapons, and armor controlled by the Arena.
+* Add tests that cover more edge cases.
+* Change the way health is dealt out across the team. i.e. create heroes that may take damage first or may take more of the team's damage.
+* Write additional classes that implement different ways to attack or defend -- i.e. create a relic class that only defends against abilities.
+* Develop a way to steal weapons and abilities from the opposing team.
+* Add rewards for team success such as weapon drops.
