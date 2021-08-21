@@ -5,7 +5,7 @@ slug: superhero-objects
 
 ## Superhero Dueler
 
-![superhero](superhero-clipart.jpg | width=300)
+![superhero](superhero-clipart.jpg =300)
 
 ### Wonders and Perils Await
 
