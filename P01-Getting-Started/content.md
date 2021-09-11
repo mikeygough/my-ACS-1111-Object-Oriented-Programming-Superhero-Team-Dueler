@@ -112,6 +112,15 @@ Wonder Woman won!
 
 Since we randomly chose a winner, either hero has an equal likelihood to win. In later chapters, we'll add armor and abilities to the heroes to make the battle much more interesting!
 
-# Move to the Next Section
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "created hero class" && git push
+```
+
+# Next
 
 Great work on building out your first few classes! Now that we have the basic functionality that allows our heroes to duel each other, we can expand on this to make our Superhero Dueler much more complex.
+Click [here](../P02-Abilities-and-Armor/content.md) to move onto the next section.

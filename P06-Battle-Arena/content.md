@@ -1,7 +1,4 @@
----
-title: Create the Arena
-slug: arena
----
+# Create the Arena
 
 We need a place for our heroes to duke it out, otherwise who's gonna pay for all that damage to the cities?
 
@@ -309,3 +306,11 @@ if __name__ == "__main__":
 * Write additional classes that implement different ways to attack or defend -- i.e. create a relic class that only defends against abilities.
 * Develop a way to steal weapons and abilities from the opposing team.
 * Add rewards for team success such as weapon drops.
+
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "Added battle arena" && git push
+```

@@ -366,3 +366,15 @@ One of the exciting features about python3 is that it supports unicode! This is 
 If you receive an error saying that there's a unicode error you'll need to force pytest to use python3 this way.
 
 `python3 -m pytest`
+
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "implemented inheritance" && git push
+```
+
+# Next
+
+Click [here](../P05-Team-Attack-And-Defense/content.md) to move onto the next section.

@@ -192,6 +192,14 @@ Debugging Shield
 
 Now that we have built our heroes armors and abilities classes, the next chapter will focus on adding these to our heroes!
 
-# Move to the Next Section
+# Commit
 
-Great work on building out your first few classes!
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "added abilities and armor" && git push
+```
+
+# Next
+
+Great work on building out your first few classes! Click [here](../P03-Adding-To-Our-Heroes/content.md) to move onto the next section about adding more to our heroes.

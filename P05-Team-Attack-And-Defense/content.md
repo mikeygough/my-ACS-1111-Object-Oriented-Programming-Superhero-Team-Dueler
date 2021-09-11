@@ -158,3 +158,15 @@ You can run just the tests contained in this file by using the command:
 ```
 pytest -x team_test.py
 ```
+
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "implemented team attack and defense" && git push
+```
+
+# Next
+
+Click [here](../P06-Battle-Arena/content.md) to move onto the next section.

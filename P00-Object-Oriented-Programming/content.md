@@ -41,6 +41,36 @@ The `class` allows many objects to be created from a single definition just as a
 
 When we create an object of a class in memory, this is called **instantiation**. Think of it as the factory creating a car (object) based on the blueprints of what a car should look like (class). An object can also be referred to as an **instance of a class**, a real thing that brings to life (in code, at least) everything the class described. We'll revisit instantiation further in this chapter.
 
+# Setting up GitHub Repo
+
+Let's setup our GitHub repository before we go any futher.
+
+Run the following commands in the main project directory and then follow the interactive prompts:
+
+```bash
+$ git init -b main
+$ gh repo create rainbow-checklist-tutorial
+```
+
+# Setting up Virtual Environment
+
+Take a moment to setup your Virtual Environment.
+
+If you haven't setup a virtual environment before, make sure install it with the command `python3 -m pip install --user virtualenv`
+
+Otherwise, make sure you are in the main directory of the project and run the following to create your virtualenv:
+
+```bash
+$ python3 -m venv env
+$ source env/bin/activate
+```
+
+Remember to install your requirements if there is a `requirements.txt` file present
+
+```bash
+$ pip3 install -r requirements.txt
+```
+
 # Make a Dog Class
 
 Let's make a simple class called `Dog`.
@@ -400,3 +430,15 @@ You like dogs! Try these challenges:
 Notice how each dog displays it's unique name when you print its name property. Do you remember why this is?
 
 Notice how each dog makes the same sound "Woof!" when it barks. Why is this?
+
+# Commit
+
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "created dog class" && git push
+```
+
+# Next Steps
+
+Awesome! Click [here](../P01-Getting-Started/content.md) to move onto the next section.

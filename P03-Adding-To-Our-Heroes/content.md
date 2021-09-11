@@ -372,6 +372,14 @@ Wonder Woman won!
 
 This is because the values of Wonder Woman's attack are much greater than Dumbledore's. Try changing the values and see what happens.
 
-# Move to the Next Section
+# Commit
 
-Now that we have the basic functionality that allows our heroes to duel each other, we can begin to move to the next important feature of object oriented programming -- **inheritance**.
+Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
+
+```bash
+$ git add . && git commit -m "added more to heroes" && git push
+```
+
+# Next
+
+Now that we have the basic functionality that allows our heroes to duel each other, we can begin to move to the next important feature of object oriented programming -- **inheritance**. Click [here](../P04-Inheritance/content.md) to move onto the next section about inheritance.
