@@ -41,20 +41,23 @@ The `class` allows many objects to be created from a single definition just as a
 
 When we create an object of a class in memory, this is called **instantiation**. Think of it as the factory creating a car (object) based on the blueprints of what a car should look like (class). An object can also be referred to as an **instance of a class**, a real thing that brings to life (in code, at least) everything the class described. We'll revisit instantiation further in this chapter.
 
-# Setting up GitHub Repo
+# Getting Started
 
-Let's setup our GitHub repository before we go any futher.
+We'll start off we start any project by 
 
-Run the following commands in the main project directory and then follow the interactive prompts:
+1. Making a new directory
+2. Adding a Python virtual enviornment
+3. Initializing a git and GitHub repos
 
-```bash
-$ git init -b main
-$ gh repo create rainbow-checklist-tutorial
+## Make a Directory
+
+Start by making a directory
+
+```
+$ mkdir superheroes-dueler
 ```
 
-# Setting up Virtual Environment
-
-Take a moment to setup your Virtual Environment.
+Next, setup your Virtual Environment.
 
 If you haven't setup a virtual environment before, make sure install it with the command `python3 -m pip install --user virtualenv`
 
@@ -70,6 +73,19 @@ Remember to install your requirements if there is a `requirements.txt` file pres
 ```bash
 $ pip3 install -r requirements.txt
 ```
+
+## Setting up GitHub Repo
+
+We can also setup our GitHub repository before we go any futher.
+
+Run the following commands in the main project directory and then follow the interactive prompts:
+
+```bash
+$ git init -b main
+$ gh repo create superheroes-dueler
+```
+
+Ok! Now we are ready to start making a little code.
 
 # Make a Dog Class
 
