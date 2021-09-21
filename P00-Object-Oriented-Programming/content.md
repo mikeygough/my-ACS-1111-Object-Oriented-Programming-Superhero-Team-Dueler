@@ -49,8 +49,6 @@ We'll start off we start any project by
 2. Adding a Python virtual enviornment
 3. Initializing a git and GitHub repos
 
-## Make a Directory
-
 Start by making a directory
 
 ```
@@ -73,8 +71,6 @@ Remember to install your requirements if there is a `requirements.txt` file pres
 ```bash
 $ pip3 install -r requirements.txt
 ```
-
-## Setting up GitHub Repo
 
 We can also setup our GitHub repository before we go any futher.
 
