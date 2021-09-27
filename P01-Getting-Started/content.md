@@ -33,14 +33,14 @@ class Hero:
           current_health: Integer
         '''
 
-    # we know the name of our hero, so we assign it here
-    self.name = name
-    # similarly, our starting health is passed in, just like name
-    self.starting_health = starting_health
-    # when a hero is created, their current health is
-    # always the same as their starting health (no damage taken yet!)
-    self.current_health = starting_health
-    ```
+        # we know the name of our hero, so we assign it here
+        self.name = name
+        # similarly, our starting health is passed in, just like name
+        self.starting_health = starting_health
+        # when a hero is created, their current health is
+        # always the same as their starting health (no damage taken yet!)
+        self.current_health = starting_health
+```
 
 Ok, we can initialize a hero! Now let's test it:
 
