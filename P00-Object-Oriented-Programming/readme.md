@@ -96,9 +96,9 @@ Now define a class using the `class` keyword in Python, and we're going to add o
 ```python
 # dog.py
 class Dog:
-    def __init__(self, name):
-        self.name = name
-        print("dog initialized!")
+  def __init__(self, name):
+    self.name = name
+    print("dog initialized!")
 ```
 
 Hang on, what's that `__init__` method? And what does `self` refer to? Let's take a brief moment to discuss both of these:
@@ -122,9 +122,9 @@ Instantiate a dog instance:
 ```python
 # dog.py
 class Dog:
-    def __init__(self, name):
-        self.name = name
-        print("dog initialized!")
+  def __init__(self, name):
+    self.name = name
+    print("dog initialized!")
 
 # instantiation call that creates a Dog object:
 Dog("Rex")
@@ -162,9 +162,9 @@ Update your code to save the instance to the `my_dog` variable:
 ```python
 # dog.py
 class Dog:
-    def __init__(self, name):
-        self.name = name
-        print("dog initialized!")
+  def __init__(self, name):
+    self.name = name
+    print("dog initialized!")
 
 # the same instantiation call that creates a Dog object,
 # but now we've assigned it to the value of the my_dog variable
@@ -199,9 +199,9 @@ To add a new property on the fly, simply name it and attach it to a dog instance
 ```python
 # dog.py
 class Dog:
-    def __init__(self, name):
-        self.name = name
-        print("dog initialized!")
+  def __init__(self, name):
+    self.name = name
+    print("dog initialized!")
 
 my_dog = Dog("Rex")
 # Adding the "breed" property on the fly
@@ -219,10 +219,10 @@ Here we go:
 ```python
 # dog.py
 class Dog:
-    def __init__(self, name, breed):
-        self.name = name
-        self.breed = breed
-        print("dog initialized!")
+  def __init__(self, name, breed):
+    self.name = name
+    self.breed = breed
+    print("dog initialized!")
 
 my_dog = Dog("Rex", "SuperDog")
 print(my_dog.breed)
@@ -250,16 +250,16 @@ Let's define our first method called `bark`. This will let us call something lik
 ```python
 # dog.py
 class Dog:
-    # Required properties are defined inside the __init__ constructor method
-    def __init__(self, name, breed):
-        self.name = name
-        self.breed = breed
-        print("dog initialized!")
+  # Required properties are defined inside the __init__ constructor method
+  def __init__(self, name, breed):
+    self.name = name
+    self.breed = breed
+    print("dog initialized!")
 
-    # Methods are defined as their own named functions inside the class
-    # Remember to put the "self" parameter every time we make a class method!
-    def bark(self):
-        print("Woof!")
+  # Methods are defined as their own named functions inside the class
+  # Remember to put the "self" parameter every time we make a class method!
+  def bark(self):
+    print("Woof!")
 
 my_dog = Dog("Rex", "SuperDog")
 # Remember python implicitly passes in "self",
@@ -331,13 +331,13 @@ Refactor `dog.py` to remove the lines you just put in `my_dogs.py`:
 ```python
 # dog.py
 class Dog:
-    def __init__(self, name, breed):
-        self.name = name
-        self.breed = breed
-        print("dog initialized!")
+  def __init__(self, name, breed):
+    self.name = name
+    self.breed = breed
+    print("dog initialized!")
 
-    def bark(self):
-        print("Woof!")
+  def bark(self):
+    print("Woof!")
 ```
 
 Now run `$ python3 my_dogs.py`. You should see no difference.
@@ -393,7 +393,6 @@ Hello World!
 In this example we have declared our message variable in a 'global scope'. That means that any functions we declare will also have access to the 'global scope'. The variables that exist within the function however have a 'local scope' that is not available in the global context.
 
 **This same principle is why if in `my_dogs.py` we tried to call `print(name)` or `bark()`, we would get an error. Both `name` and `bark()` only exist within the scope of a `Dog` object!**
-
 
 # Make Another Dog
 
@@ -453,4 +452,4 @@ $ git add . && git commit -m "created dog class" && git push
 
 # Next Steps
 
-Awesome! Click [here](../P01-Getting-Started/content.md) to move onto the next section.
+Awesome! Click [here](../P01-Getting-Started) to move onto the next section.
