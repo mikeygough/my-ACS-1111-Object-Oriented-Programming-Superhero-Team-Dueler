@@ -83,11 +83,11 @@ class Ability:
 ...
 
   def attack(self):
-      ''' Return a value between 0 and the value set by self.max_damage.'''
+    ''' Return a value between 0 and the value set by self.max_damage.'''
 
-      # Pick a random value between 0 and self.max_damage
-      random_value = random.randint(0,self.max_damage)
-      return random_value
+    # Pick a random value between 0 and self.max_damage
+    random_value = random.randint(0,self.max_damage)
+    return random_value
 ```
 
 ## Test your code out
@@ -104,11 +104,11 @@ class Ability:
 ...
 
 if __name__ == "__main__":
-    # If you run this file from the terminal
-    # this block is executed.
-    ability = Ability("Debugging Ability", 20)
-    print(ability.name)
-    print(ability.attack())
+  # If you run this file from the terminal
+  # this block is executed.
+  ability = Ability("Debugging Ability", 20)
+  print(ability.name)
+  print(ability.attack())
 ```
 
 If your code is written correctly you should see a number between 0 and 20 appear in the terminal if you use this example to test with.
@@ -120,7 +120,7 @@ Debugging Ability
 4
 ```
 
-But your values may be different since we're using a random number generator.
+But your values may be different since we're using a random number generator. Be sure to run the test code a few times to make sure you're getting different numbers with each test!
 
 # Add Armors
 
@@ -144,13 +144,13 @@ Build the Constructor
 
 ```python
 class Armor:
-    def __init__(self, name, max_block):
-        '''Instantiate instance properties.
-            name: String
-            max_block: Integer
-        '''
-        # TODO: Create instance variables for the values passed in.
-        pass
+  def __init__(self, name, max_block):
+    '''Instantiate instance properties.
+        name: String
+        max_block: Integer
+    '''
+    # TODO: Create instance variables for the values passed in.
+    pass
 ```
 
 Let's create a method that we can call that will calculate the amount we will block with.
@@ -160,10 +160,8 @@ Build the `block` method for the Armor class
 
 ```python
 def block(self):
-    '''
-    Return a random value between 0 and the
-    initialized max_block strength.
-    '''
+    # TODO: Return a random value between 0 and the
+    # initialized max_block strength.
     pass
 ```
 
@@ -173,11 +171,11 @@ Create an instance of `Armor` and check that your properties and methods work co
 
 ```python
 if __name__ == "__main__":
-    # If you run this file from the terminal
-    # this block is executed.
-    armor = Armor("Debugging Shield", 10)
-    print(armor.name)
-    print(armor.block())
+  # If you run this file from the terminal
+  # this block is executed.
+  armor = Armor("Debugging Shield", 10)
+  print(armor.name)
+  print(armor.block())
 ```
 
 If your code is written correctly you should see a number between 0 and 10 appear in the terminal if you use this example to test with.
@@ -191,6 +189,8 @@ Debugging Shield
 
 Now that we have built our heroes armors and abilities classes, the next chapter will focus on adding these to our heroes!
 
+Be sure to test a few times to make sure that the numbers are different. They should be random and they should fall within the range of `0` up to the `max_block` value.
+
 # Commit
 
 Commit your changes to GitHub. Feel free to use a custom message of your own, as long as it accuratley describes what you did.
@@ -201,4 +201,4 @@ $ git add . && git commit -m "added abilities and armor" && git push
 
 # Next
 
-Great work on building out your first few classes! Click [here](../P03-Adding-To-Our-Heroes/content.md) to move onto the next section about adding more to our heroes.
+Great work on building out your first few classes! Click [here](../P03-Adding-To-Our-Heroes/) to move onto the next section about adding more to our heroes.

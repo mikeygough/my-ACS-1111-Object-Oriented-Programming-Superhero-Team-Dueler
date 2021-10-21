@@ -95,6 +95,16 @@ def fight(self, opponent):
   # Hint: Look into random library, more specifically the choice method
 ```
 
+Import random: `import random` at the top of your script and use one of the random methods to generate a random number. For example: `random.randomint(0,1)` would return a number between 0 and 1. 
+
+Print the name of the victor. It should either be the hero instance or the opponent instance. Print a message something like: 
+
+`Wonder Woman Wins!` or `Dumbledore Wins!`
+
+**Stretch Goal:** Make the message fancy! Print something like: 
+
+`Wonder Woman defeats Dumbledore!` or `Dumbledore defeats Wonder Woman!`
+
 ## Continue To Test it out
 
 You can test out whether your `Hero` class is working properly by adding these tests to your file:
@@ -115,7 +125,24 @@ You should see an output similar to:
 Wonder Woman won!
 ```
 
+Test your code a few times. You should get a different results. Test enough to make sure both heros win at some point. You'll have to test a few times because contest is random it's possible for a hero to win a few times in a row! 
+
 Since we randomly chose a winner, either hero has an equal likelihood to win. In later chapters, we'll add armor and abilities to the heroes to make the battle much more interesting!
+
+**Stretch Goal:** consider the hero's power when deciding a winner! There are a few ways you can handle this. Here is one possible solution. Add the two powers together. Then divide power of a hero by the total. This should give you a decimal percent chance that hero should win the contest. 
+
+For example: 
+
+```python
+hero1 = Hero("Wonder Woman", 300)
+hero2 = Hero("Dumbledore", 250)
+```
+
+Get the total: 300 + 250 = 550
+
+Wonder Woman's chance of winning is: 300 / 550 = 0.55 or 55%
+
+Dumbledore's chance of winning is: 250 / 550 = 0.45 or 45%
 
 # Commit
 
