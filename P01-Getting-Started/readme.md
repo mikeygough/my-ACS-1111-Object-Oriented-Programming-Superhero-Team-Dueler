@@ -6,7 +6,7 @@ Before we get started, it's important to know how we will build out this file:
 
 - Some classes we will give you the code to use. Be sure to read through it and reference the comments so that you know what it is doing. This is important because...
 - Other classes we will _NOT_ give you the code, and will only give you a docstring that describes what the code is supposed to do. Use this as a template and replace `pass` with your own code.
-    - Use your prior learnings and the code we gave you to help build out the code needed for these classes
+  - Use your prior learnings and the code we gave you to help build out the code needed for these classes
 
 Here is an overview of what you will build in this chapter:
 
@@ -23,23 +23,24 @@ Let's walk through each method and smoke test them as we go.
 Build out the Hero class constructor:
 
 ```python
+# hero.py
 class Hero:
-    # We want our hero to have a default "starting_health",
-    # so we can set that in the function header.
-    def __init__(self, name, starting_health=100):
-        '''Instance properties:
-          name: String
-          starting_health: Integer
-          current_health: Integer
-        '''
+  # We want our hero to have a default "starting_health",
+  # so we can set that in the function header.
+  def __init__(self, name, starting_health=100):
+    '''Instance properties:
+      name: String
+      starting_health: Integer
+      current_health: Integer
+    '''
 
-        # we know the name of our hero, so we assign it here
-        self.name = name
-        # similarly, our starting health is passed in, just like name
-        self.starting_health = starting_health
-        # when a hero is created, their current health is
-        # always the same as their starting health (no damage taken yet!)
-        self.current_health = starting_health
+    # we know the name of our hero, so we assign it here
+    self.name = name
+    # similarly, our starting health is passed in, just like name
+    self.starting_health = starting_health
+    # when a hero is created, their current health is
+    # always the same as their starting health (no damage taken yet!)
+    self.current_health = starting_health
 ```
 
 Ok, we can initialize a hero! Now let's test it:
@@ -50,11 +51,11 @@ After completing the method, add a call to your newly created constructor at the
 
 ```python
 if __name__ == "__main__":
-    # If you run this file from the terminal
-    # this block is executed.
-    my_hero = Hero("Grace Hopper", 200)
-    print(my_hero.name)
-    print(my_hero.current_health)
+  # If you run this file from the terminal
+  # this block is executed.
+  my_hero = Hero("Grace Hopper", 200)
+  print(my_hero.name)
+  print(my_hero.current_health)
 ```
 
 If you've done it correctly you should be able to set the values and see them in the terminal when running the file:
@@ -64,8 +65,7 @@ Grace Hopper
 200
 ```
 
-Note that we can still provide a value for `starting_health` which replaces the default value of 100 that we gave in the `__init__` method! If when we instantiated our hero we had just put `Hero("Grace Hopper")`, then their `current_health` would've been 100!
-
+Note that we can still provide a value for `starting_health` which replaces the default value of 100 that we gave in the `__init__` method! If when we instantiated our hero with only a name: `Hero("Grace Hopper")`, then their `current_health` would've been 100!
 
 # Fight!
 
@@ -75,10 +75,11 @@ The `fight()` method will take an `opponent` as a parameter. An `opponent` is an
 
 Since we haven't added abilities and armor to our heroes, we'll start by randomly choosing a winner.
 
-
 The core functionality for this method will come from calling methods that exist in the current instantiated object (using `self`) as well as calling methods on the `opponent` object that is passed in as a parameter.
 
 Build the `fight` method for the Hero class! Take everything you've learned so far in this chapter and apply it to creating this method!
+
+Add this method to the Hero class:
 
 ```python
 def fight(self, opponent):
@@ -87,7 +88,7 @@ def fight(self, opponent):
   # TODO: Fight each hero until a victor emerges.
   # Phases to implement:
   #1) randomly choose winner,
-  #Hint: Look into random library, more specifically the choice method
+  # Hint: Look into random library, more specifically the choice method
 ```
 
 ## Continue To Test it out
@@ -123,4 +124,4 @@ $ git add . && git commit -m "created hero class" && git push
 # Next
 
 Great work on building out your first few classes! Now that we have the basic functionality that allows our heroes to duel each other, we can expand on this to make our Superhero Dueler much more complex.
-Click [here](../P02-Abilities-and-Armor/content.md) to move onto the next section.
+Click [here](../P02-Abilities-and-Armor/) to move onto the next section.
