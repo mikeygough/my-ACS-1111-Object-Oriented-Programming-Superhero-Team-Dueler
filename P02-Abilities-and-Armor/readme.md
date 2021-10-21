@@ -4,7 +4,7 @@ In this chapter we are going to make classes for Armor and Abilities so each of 
 
 - Some classes we will give you the code to use. Be sure to read through it and reference the comments so that you know what it is doing. This is important because...
 - Other classes we will _NOT_ give you the code, and will only give you a docstring that describes what the code is supposed to do. Use this as a template and replace `pass` with your own code.
-    - Use your prior learnings and the code we gave you to help build out the code needed for these classes
+  - Use your prior learnings and the code we gave you to help build out the code needed for these classes
 
 Here is an overview of what you will build in this chapter:
 
@@ -40,21 +40,20 @@ First, in your project directory, make a file named `ability.py` to contain all 
 
 ## Set initial values with a constructor
 
-
 Use a constructor to set the name and attack strength for our `Ability` just like you did in the last section with `name` in our `Dog` class.
 
 ```python
 class Ability:
-    def __init__(self, name, max_damage):
-        '''
-       Initialize the values passed into this
-       method as instance variables.
-        '''
+  def __init__(self, name, max_damage):
+    '''
+    Initialize the values passed into this
+    method as instance variables.
+    '''
 
-        # Assign the "name" and "max_damage"
-        # for a specific instance of the Ability class
-        self.name = name
-        self.max_damage = max_damage
+    # Assign the "name" and "max_damage"
+    # for a specific instance of the Ability class
+    self.name = name
+    self.max_damage = max_damage
 ```
 
 Our next task is to write the `attack` method. To make it more interesting we don't want our Hero to have the same attack value every time. We want to have some range of values that are possible when our Hero attacks. We'll use the random module for this functionality

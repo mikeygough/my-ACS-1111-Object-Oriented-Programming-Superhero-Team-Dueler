@@ -67,6 +67,10 @@ Grace Hopper
 
 Note that we can still provide a value for `starting_health` which replaces the default value of 100 that we gave in the `__init__` method! If when we instantiated our hero with only a name: `Hero("Grace Hopper")`, then their `current_health` would've been 100!
 
+**NOTE!** The code above is inside the `if __name__ == "__main__":` block. This block will only run if this script is called directly. The if/code block here prevents this block from being run when this script is imported by anotther script. 
+
+Why? This allows us to test the code here by running: `python3 hero.py`. Later we want to import the `Hero` class but we won't want to run this test code.
+
 # Fight!
 
 It's time to get a one vs one battle happening! Your job is to create a method that will allow each hero to attack the other.
