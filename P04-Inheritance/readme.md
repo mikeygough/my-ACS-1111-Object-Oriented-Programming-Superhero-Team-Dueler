@@ -6,15 +6,12 @@ Here is a simple demonstration of inheritance at work.
 
 ```python
 class Animal:
-    def __init__(self, name, sleep_duration):
-        self.name = name
-        self.sleep_time = sleep_time
+  def __init__(self, name, sleep_duration):
+    self.name = name
+    self.sleep_time = sleep_time
 
-    def sleep(self):
-        print(
-            "{} sleeps for {} hours {}".format(
-                self.name,
-                self.sleep_time))
+  def sleep(self):
+    print(f"{self.name} sleeps for hours {self.sleep_time}")
 ```
 
 let's say we have the above `Animal` class. We can instantiate a new animal object the same way we've already seen it done.
@@ -38,20 +35,17 @@ let's use inheritance to make a `Dog` class that allows us to bark.
 
 ```python
 class Animal:
-    def __init__(self, name, sleep_duration):
-        self.name = name
-        self.sleep_duration = sleep_duration
+  def __init__(self, name, sleep_duration):
+    self.name = name
+    self.sleep_duration = sleep_duration
 
-    def sleep(self):
-        print(
-            "{} sleeps for {} hours".format(
-                self.name,
-                self.sleep_duration))
+  def sleep(self):
+    print(f"{self.name} sleeps for hours {self.sleep_time}")
 
 # Note that the class Dog takes in Animal as a parameter!
 class Dog(Animal):
-    def bark(self):
-        print("Woof! Woof!")
+  def bark(self):
+    print("Woof! Woof!")
 ```
 
 Instantiate a new `Dog` object and call the sleep and bark methods this way.
@@ -103,16 +97,16 @@ Once you've tried it, check your code against the provided solution below:
 class Animal:
   def __init__(self, name):
     self.name = name
->
+
   def eat(self):
-    print('{} is eating'.format(self.name))
->
+    print(f"{self.name} is eating")
+
   def drink(self):
-    print('{} is drinking'.format(self.name))
->
+    print(f"{self.name} is drinking")
+
 class Frog(Animal):
     def jump(self):
-        print('{} is jumping'.format(self.name))
+      print(f"{self.name} is jumping")
 ```
 
 </details>
