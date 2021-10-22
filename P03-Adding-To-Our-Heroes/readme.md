@@ -28,6 +28,7 @@ Now, we are going to expand our Hero class so that it is able to use the armor a
   7. `fight`: Parameters: opponent: Hero Class  
 
 # Build out the Hero Class
+
 Here we define what we want our `Hero` class to look like. Each hero should have a name and should be able to have several different abilities. Also a hero will need other attributes such as starting and current health. Let's set these as some starting value when we create each Hero in memory.
 
 Let's walk through each method and smoke test them as we go.
@@ -41,31 +42,42 @@ from ability import Ability
 from armor import Armor
 
 class Hero:
-    # We want our hero to have a default "starting_health",
-    # so we can set that in the function header.
-    def __init__(self, name, starting_health=100):
-      '''Instance properties:
-          abilities: List
-          armors: List
-          name: String
-          starting_health: Integer
-          current_health: Integer
-      '''
-
-        # abilities and armors don't have starting values,
-        # and are set to empty lists on initialization
-        self.abilities = list()
-        self.armors = list()
-        # we know the name of our hero, so we assign it here
-        self.name = name
-        # similarly, our starting health is passed in, just like name
-        self.starting_health = starting_health
-        # when a hero is created, their current health is
-        # always the same as their starting health (no damage taken yet!)
-        self.current_health = starting_health
+  # We want our hero to have a default "starting_health",
+  # so we can set that in the function header.
+  def __init__(self, name, starting_health=100):
+    '''Instance properties:
+        abilities: List
+        armors: List
+        name: String
+        starting_health: Integer
+        current_health: Integer
+    '''
+    # abilities and armors don't have starting values,
+    # and are set to empty lists on initialization
+    self.abilities = list()
+    self.armors = list()
+    # we know the name of our hero, so we assign it here
+    self.name = name
+    # similarly, our starting health is passed in, just like name
+    self.starting_health = starting_health
+    # when a hero is created, their current health is
+    # always the same as their starting health (no damage taken yet!)
+    self.current_health = starting_health
 ```
 
 Great, now let's add an ability!
+
+# Import Ability
+
+Hero needs an ability. `Ability` is defined in `ability.py` and `Hero` is defined in `hero.py`. You need to get `Ability` into `hero.py`. To do that add the following to the top of `hero.py`:
+
+```python
+from ability import Ability
+```
+
+Here you are saying `from <File> import <Class>`
+
+Hero needs both `Armor` and `Ability`. Import both of these at the top of `hero.py`.
 
 # Create an add_ability method
 
@@ -75,22 +87,22 @@ Use the append method to add a new ability to your hero's `abilities` list.
 
 ```python
 def add_ability(self, ability):
-    ''' Add ability to abilities list '''
+  ''' Add ability to abilities list '''
 
-    # We use the append method to add ability objects to our list.
-    self.abilities.append(ability)
+  # We use the append method to add ability objects to our list.
+  self.abilities.append(ability)
 ```
 
 When your `add_ability` method is complete test it out this way:
 
 ```python
 if __name__ == "__main__":
-    # If you run this file from the terminal
-    # this block is executed.
-    ability = Ability("Great Debugging", 50)
-    hero = Hero("Grace Hopper", 200)
-    hero.add_ability(ability)
-    print(hero.abilities)
+  # If you run this file from the terminal
+  # this block is executed.
+  ability = Ability("Great Debugging", 50)
+  hero = Hero("Grace Hopper", 200)
+  hero.add_ability(ability)
+  print(hero.abilities)
 ```
 
 You should see output similar to the following:
@@ -121,8 +133,8 @@ The code snippet below shows how you might iterate over a list of dogs and call 
 
 ```python
 class Dog:
-    def bark(self):
-        print("Woof!")
+  def bark(self):
+    print("Woof!")
 
 my_dogs = list()
 
@@ -130,7 +142,7 @@ my_dogs.append(Dog())
 my_dogs.append(Dog())
 
 for dog in my_dogs:
-    dog.bark()
+  dog.bark()
 ```
 
 You'll see the output in this code snippet is:
@@ -143,19 +155,19 @@ Woof!
 Use this pattern to find the attack of each ability, but total them all up to find the strength of your hero's attack.
 
 ```python
-    def attack(self):
-      '''Calculate the total damage from all ability attacks.
-          return: total_damage:Int
-      '''
+def attack(self):
+  '''Calculate the total damage from all ability attacks.
+      return: total_damage:Int
+  '''
 
-      # start our total out at 0
-      total_damage = 0
-        # loop through all of our hero's abilities
-        for ability in self.abilities:
-            # add the damage of each attack to our running total
-            total_damage += ability.attack()
-        # return the total damage
-        return total_damage
+  # start our total out at 0
+  total_damage = 0
+    # loop through all of our hero's abilities
+    for ability in self.abilities:
+      # add the damage of each attack to our running total
+      total_damage += ability.attack()
+    # return the total damage
+    return total_damage
 ```
 
 When you're ready, let's test it!
@@ -174,11 +186,11 @@ if __name__ == "__main__":
     print(hero.attack())
 ```
 
-You should see a value between 0 and 140 in the terminal.
+You should see a value between 0 and 140 in the terminal. Remember to run this code a few times and look for a range of values that fits with the values you are expecting! 
 
 # Add Armor
 
-let's create a method that allows us to add armor.
+Let's create a method that allows us to add armor.
 
 This method should receive an armor object that should be added to the list `self.armors` that was instantiated in the constructor.
 
@@ -214,9 +226,11 @@ def defend(self):
   # TODO: This method should run the block method on each armor in self.armors
 ```
 
+**Add some armor** Add some armor to your test hero. Create two instances of the armore class. Add these to your hero. Then call the defend method and print the results. Be sure to test this a couple times to make sure it's working correctly. 
+
 # Take Damage
 
-When a hero takes damage, their `self.current_health` should be decreased. While you can change a property directly, it's common practice to use a method to change this value instead. This is called a **setter** in software design. The job of a setter is to be in charge of updating the value of a specific property.  This allows for value verification and additional housekeeping that may be required every time the value is changed. This system offers the advantage of allowing your software to react to the changes of specific properties. For example, a hero might take less damage if they have a force field, or they might say "Ouch!" if they get hit harder, or they might fall over over if they run out of health.
+When a hero takes damage, their `self.current_health` should be decreased. While you can change a property directly, it's common practice to use a method to change this value instead. This is called a **setter** in software design. The job of a setter is to be in charge of updating the value of a specific property.  This allows for value verification and additional housekeeping that may be required every time the value is changed. This system offers the advantage of allowing your software to react to the changes of specific properties. For example, a hero might take less damage if they have a force field, or they might say "Ouch!" If they take little or no damage from an attack they might say "You'll have to try hard than that!" They might fall over over if they run out of health.
 
 In our case we want to call the defend method and change our hero's health based on the number and type of armors that our hero has.
 
@@ -260,6 +274,19 @@ if __name__ == "__main__":
 ```
 
 When calling your code with these values you should have a `current_health` between 150 and 200 depending on how much was blocked by Grace.
+
+**Stretch challenge:** Think about the math here...🤔 If a hero takes 50 points but their defenses only come up with high numbers, remember the values generated are random, it's possible for a damage to add points to `current_helth`!
+
+For example: 
+
+- Our example hero has a current health of 200
+- Imagine they have armor with a value of 70
+- Now imagine they are attacked for 50 points
+- Imagine armor generated a defense of 62 (its random)
+- Calculate the damage as 50 - 62 = -12
+- Now subtract the damage from current health and we get 200 - -12 = 212 (remember if you subtract a negative number you're adding)
+
+The stretch goal here is to handle this situation. The easy solution is to ignore damage when it is less than 0. But you might think of other solutions. 
 
 # Are You still conscious?
 
@@ -371,6 +398,17 @@ Wonder Woman won!
 ```
 
 This is because the values of Wonder Woman's attack are much greater than Dumbledore's. Try changing the values and see what happens.
+
+**Stretch goal:** a lot depends on who attacks when! If one hero attacks first and defeats the other the other may never get a chance to attack. 
+
+The same is true for the order of checking for a defeated hero. If we check the opponent first, we may have been defeated. But, if the computer checks the opponent who was also defeated it's possible for our code to say we won while a more accurate assessment might call the contest a draw! 
+
+Try and solve this. Calculate the damage first. Apply attacks each hero. Then check form your code to present the following outcomes: 
+
+- self hero wins
+- opponent wins
+- draw both heros are defeated
+- neither side has lost. In this case we loop again and run another attack.
 
 # Commit
 
