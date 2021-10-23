@@ -23,7 +23,7 @@ Rather, the `Team` class **contains** `Hero` objects (using a list), see below f
 
 In a similar manner, your `Hero` has a list of abilities and armors. This does not mean your `Hero` has `Ability` or `Armor` methods or properties, but that the `Hero` can contain `Ability` or `Armor` objects that have their own methods/properties, and can only be used/accessed by the `Ability` or `Armor` objects
 
-> This concept is known as **Aggregation** in OOP. Another way to think about it is that inheritance vs aggregation is "isa" vs. "hasa".
+> This concept is known as **Aggregation** in OOP. Another way to think about it is that inheritance vs aggregation is "is a" vs. "has a".
 >
 >For example, a `Weapon` "is a(n)" `Ability`, whereas a `Team` "has a" list of `Hero` objects
 
@@ -33,11 +33,11 @@ Build the constructor for the Team class:
 
 ```py
 class Team:
-    def __init__(self, name):
-        ''' Initialize your team with its team name and an empty list of heroes
-        '''
-        self.name = name
-        self.heroes = list()
+  def __init__(self, name):
+    ''' Initialize your team with its team name and an empty list of heroes
+    '''
+    self.name = name
+    self.heroes = list()
 ````
 
 # Remove a Hero from the Team
@@ -48,21 +48,21 @@ Build the `remove_hero` method for the Team class:
 
 ```python
 def remove_hero(self, name):
-    '''Remove hero from heroes list.
-    If Hero isn't found return 0.
-    '''
-    foundHero = False
-    # loop through each hero in our list
-    for hero in self.heroes:
-        # if we find them, remove them from the list
-        if hero.name == name:
-            self.heroes.remove(hero)
-            # set our indicator to True
-            foundHero = True
-    # if we looped through our list and did not find our hero,
-    # the indicator would have never changed, so return 0
-    if not foundHero:
-        return 0
+  '''Remove hero from heroes list.
+  If Hero isn't found return 0.
+  '''
+  foundHero = False
+  # loop through each hero in our list
+  for hero in self.heroes:
+    # if we find them, remove them from the list
+    if hero.name == name:
+      self.heroes.remove(hero)
+      # set our indicator to True
+      foundHero = True
+  # if we looped through our list and did not find our hero,
+  # the indicator would have never changed, so return 0
+  if not foundHero:
+    return 0
 ```
 
 # View the teams heroes
@@ -75,9 +75,9 @@ Build the `view_all_heroes` function for the Team class:
 
 ```python
 def view_all_heroes(self):
-    '''Prints out all heroes to the console.'''
-    # TODO: Loop over the list of heroes and print their names to the terminal one by one.
-    pass
+  '''Prints out all heroes to the console.'''
+  # TODO: Loop over the list of heroes and print their names to the terminal one by one.
+  pass
 ```
 
 # Add Hero to Team
