@@ -136,13 +136,13 @@ Write the `attack` method for our new `Weapon` class.
 
 ```python
 class Weapon(Ability):
-    def attack(self):
-        """  This method returns a random value
-        between one half to the full attack power of the weapon.
-        """
-        # TODO: Use integer division to find half of the max_damage value
-        # then return a random integer between half of max_damage and max_damage
-        pass
+  def attack(self):
+    """  This method returns a random value
+    between one half to the full attack power of the weapon.
+    """
+    # TODO: Use integer division to find half of the max_damage value
+    # then return a random integer between half of max_damage and max_damage
+    pass
 ```
 
 Now that we have a weapon, we need to allow heroes to add a weapon for them to use. You will do this one on your own as well, refer to your other `add` methods for guidance.
@@ -157,17 +157,17 @@ Add the following to the Hero class:
 from weapon import Weapon
 
 class Hero:
-    # The code you have already written should be here.  
-    # Add the following method to your hero class...
+  # The code you have already written should be here.  
+  # Add the following method to your hero class...
 
-    def add_weapon(self, weapon):
-        '''Add weapon to self.abilities'''
-        # TODO: This method will append the weapon object passed in as an
-        # argument to self.abilities.
-        # This means that self.abilities will be a list of
-        # abilities and weapons.
-        pass
-    ....
+  def add_weapon(self, weapon):
+    '''Add weapon to self.abilities'''
+    # TODO: This method will append the weapon object passed in as an
+    # argument to self.abilities.
+    # This means that self.abilities will be a list of
+    # abilities and weapons.
+    pass
+  ....
 ```
 
 Use these tests to make sure you implemented `Weapon` correctly:
@@ -190,176 +190,62 @@ Congrats, you've re-defined a method that already exists in our inherited `Abili
 
 This is called **method overriding** and it is a form of **Polymorphism. It allows you to specify a different functionality for methods that are inherited from the superclass.** When we call `attack()` on our `Weapon` object it will run the `attack` method specified in the `Weapon` class and not the one in `Ability`.
 
-# Build A Team class
+What is polymorphism doing in practicale terms? In this case we have two classes that are similar but act differently. And one we can replace one with another in software without any problems. Let's look at why. 
 
-In your project directory, make a 'team.py' file to contain the Team class
+First lets look at the word: 
 
-Superheroes should be team players, so let's create a team class that can manage all of our superheroes.
+> Polymorphism is a greek word meaning: to have multiple forms. 
+> Poly means multiple
+> and morph means to change form
 
-Here's an overview of some of the methods we'll need.
+We often write code that works with one type of thing. Integers, Floats, Strings for example. Sometimes we run into situations where we have multiple different kinds of things but we want to work with all these different things without having to write a new system! 
 
-1. `__init__`: Parameters: name: String
-1. `add_hero`: Parameters: hero:String
-1. `remove_hero`: Parameters name: String
-1. `view_all_heroes`: Parameters: None
+`Ability` stores an attribute called `max_damage`.  Since `Weapon` extends `Ability` we can use `Weapon` anywhere our code requires an object with a `max_damage` attribute because `Weapon` will inherit `max_damage`. 
 
-You'll need to use methods that exist in the built-in Python list (`self.heroes`) to add and remove heroes to the team. This code is going to be very similar to the code that you wrote in Rainbow Checklist except that instead of adding strings to our list, we want to add `Hero` objects.
+When we use an ability we call it's attack method. Both `Ability` and `Weapon` implement an attack method. Any code that receives an Object and tries to invoke that object's attack method can work with either an `Ability` or a `Weapon`. 
 
-## Aggregation Vs Inheritance
+`Ability` and `Weapon` are both different. When invoking an attack with a weapon the amount of damage returned will be a higher number. So internally the `Ability` and `Weapon` work differently but externally they look the same!
 
-Before we move forward, let's review what we just said about the `Team` class: it will contain a list of `Hero` objects. An important distinction here is that **`Team` does not inherit from the `Hero` class, and `Hero` does not inherit from the `Team` class.**
-
-Rather, the `Team` class **contains** `Hero` objects (using a list), see below for a visualized example:
-
-![hero_team](assets/hero_visual.png)
-
-In a similar manner, your `Hero` has a list of abilities and armors. This does not mean your `Hero` has `Ability` or `Armor` methods or properties, but that the `Hero` can contain `Ability` or `Armor` objects that have their own methods/properties, and can only be used/accessed by the `Ability` or `Armor` objects
-
-> This concept is known as **Aggregation** in OOP. Another way to think about it is that inheritance vs aggregation is "isa" vs. "hasa".
->
->For example, a `Weapon` "is a(n)" `Ability`, whereas a `Team` "has a" list of `Hero` objects
-
-# Build the Constructor
-
-Build the constructor for the Team class:
-
-```py
-class Team:
-    def __init__(self, name):
-        ''' Initialize your team with its team name and an empty list of heroes
-        '''
-        self.name = name
-        self.heroes = list()
-````
-
-# Remove a Hero from the Team
-
-This method should find a Hero by its name and remove them from the team's list of Heroes. If you cannot find a hero, return 0
-
-Build the `remove_hero` method for the Team class:
+Let's look at that idea with some code: 
 
 ```python
-def remove_hero(self, name):
-    '''Remove hero from heroes list.
-    If Hero isn't found return 0.
-    '''
-    foundHero = False
-    # loop through each hero in our list
-    for hero in self.heroes:
-        # if we find them, remove them from the list
-        if hero.name == name:
-            self.heroes.remove(hero)
-            # set our indicator to True
-            foundHero = True
-    # if we looped through our list and did not find our hero,
-    # the indicator would have never changed, so return 0
-    if not foundHero:
-        return 0
+# define an ability and a weapon
+# both have the same max damage
+eye_rays = Ability('Eye Rays', 50)
+laser_blast = Weapn('Laser Blast', 50)
+
+# Let's put these in an array together
+# This list contains different types: Ability and Weapon
+powers = [eye_rays, laser_blast]
+
+# We know that all Abilities and Weapons share the same attribute
+for power in powers:
+  print(power.max_damage)
+
+# We know that all Abilities and Weapns implement the attack method
+for power in powers:
+  print(power.attack())
+
+# Note! While both implement attack() a Weapon will always return 
+# a higher average damage!
 ```
 
-# View the teams heroes
+Form the code sample above we can see that we have a list of different types but our code here can treat them the same. This is polymorphism. 
 
-You'll build this one on your own. This method should print a list of all the teams heroes to the terminal.
-
-Build the `view_all_heroes` function for the Team class:
-
-**HINT:** Remember self.heroes is a list!
+Where would this not work? 
 
 ```python
-def view_all_heroes(self):
-    '''Prints out all heroes to the console.'''
-    # TODO: Loop over the list of heroes and print their names to the terminal one by one.
-    pass
-```
+# imagine we have a list of strings and ints
+stuff = [1, 4, 'two', 3, 'five']
 
-# Add Hero to Team
-
-You will build this one on your own as well. We need to add heroes to our team. Let's create a method to do that. This will be similar to the methods we already wrote when adding armors to our hero.
-
-Build the `add_hero` method for the the Team Class:
-
-**HINT:** Remember self.heroes is a list!
-
-```python
-def add_hero(self, hero)
-  '''Add Hero object to self.heroes.'''
-  # TODO: Add the Hero object that is passed in to the list of heroes in
-  # self.heroes
-  pass
-```
-
-# Test Driven Development
-
-Previously we've used user stories to visualize what our finished application should look like before we began to build it. Here instead of user stories we'll use automated tests in much the same way.
-
-Test Driven Development (commonly abbreviated as **TDD**) is another way of imagining the end result before you dive into coding. However, instead of writing narratives, with TDD we actually write *code* that verifies the behavior we want our program to perform before we even write the program.
-
-By writing the test first you focus on functionality first instead of implementation. In the spirit of TDD, we wrote some tests already for you to use, which your class methods must pass.
-
-## Install `pytest`
-
-We'll use the automated testing tool [pytest](https://docs.pytest.org/en/latest/) to verify the code.
-
-Pytest must be installed into your system first before you can use it. While you don't need pytest to run the tests included in this project, pytest gives a lot of additional helpful tools and loggin.
-
-To install, simply open your terminal and type:
-
-```bash
-$ pip3 install pytest
-```
-
-You should be able to verify that pytest is installed by checking which version you have.
-
-```bash
-pytest --version
-```
-
-You should see something similar to this output.
-
-```bash
-This is pytest version 5.1.0, imported from /usr/local/lib/python3.7/site-packages/pytest.py
-```
-
-# Pass Your First Test
-
-Tests have been provided to help you with this assignment.
-
-You can download the test [here](https://github.com/Tech-at-DU/Superhero-Team-Dueler/blob/master/hero_test.py) and place it in the same folder as `hero.py`
-
-To run the provided tests `cd` into to the project directory in the terminal
+# we can loop over these elements but we can't
+# use the capitalize() method on integers! 
+for thing in stuff: 
+  print(thing.capitalize()) # Error
 
 ```
-cd name-of-project-dir
-```
 
-then run
-
-```
-pytest
-```
-
-This command will automatically look at any file that contains `test` in the filename then run any function that begins with `test_`.
-
-Fortunately `pytest` has options that allow us to specify which tests to run and how many tests to focus on.
-
-If you want pytest to stop after the first failure you can use this command instead.
-
-```
-pytest -x
-```
-
-This will run all tests in `hero_test.py` and stop after the first failure.
-
-For additional `pytest` options see their documentation [here](https://docs.pytest.org/en/latest/usage.html).
-
-Make sure all the tests in the `hero_test.py` file pass.
-
-## A Note About Python 2 vs Python 3
-One of the exciting features about python3 is that it supports unicode! This is great but it can cause compatibility issues when running python2.
-
-If you receive an error saying that there's a unicode error you'll need to force pytest to use python3 this way.
-
-`python3 -m pytest`
+In this second example you can see that an integer can't be used where our code expects a string! Int and String are not polymorphic! 
 
 # Commit
 
@@ -371,4 +257,4 @@ $ git add . && git commit -m "implemented inheritance" && git push
 
 # Next
 
-Click [here](../P05-Team-Attack-And-Defense/content.md) to move onto the next section.
+Click [here](../P05-Building-a-Team) to move onto the next section.
