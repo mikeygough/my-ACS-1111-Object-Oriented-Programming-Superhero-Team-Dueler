@@ -28,7 +28,7 @@ Note that any methods that already exist in your code simply need to be refactor
 
 # Add properties to Hero method
 
-let's start by adding a way to track statistics. Create these new properties in the constructor to allow us to do this.
+Start by tracking statistics. Create new properties in the constructor to allow us to do this.
 
 Update the constructor for your Hero class to track deaths and kills:
 
@@ -42,7 +42,7 @@ def __init__(self, name, health=100):
 
 # Add Kill statistics
 
-Create this method that will act as a setter for `self.kills`.
+Create a method that will act as a setter for `self.kills`.
 
 Add the `add_kill` method to the Hero class:
 
@@ -54,7 +54,7 @@ def add_kill(self, num_kills):
 
 # Add Death statistics
 
-You will do this one on your own. Create this method that will act as a setter for `self.deaths`.
+You will do this one on your own. Create a method to act as a setter for `self.deaths`.
 
 Add the `add_death` method to the Hero class:
 
@@ -98,7 +98,7 @@ def stats(self):
   '''Print team statistics'''
   for hero in self.heroes:
     kd = hero.kills / hero.deaths
-    print("{} Kill/Deaths:{}".format(hero.name,kd))
+    print(f"{hero.name} Kill/Deaths:{kd}")
 ```
 
 # Update Team Class - revive_heroes
@@ -168,4 +168,4 @@ $ git add . && git commit -m "implemented team attack and defense" && git push
 
 # Next
 
-Click [here](../P06-Battle-Arena/content.md) to move onto the next section.
+Click [here](../P06-Battle-Arena/) to move onto the next section.
