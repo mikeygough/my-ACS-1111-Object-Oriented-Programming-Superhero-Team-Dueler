@@ -168,4 +168,4 @@ $ git add . && git commit -m "implemented team attack and defense" && git push
 
 # Next
 
-Click [here](../P06-Battle-Arena/) to move onto the next section.
+Click [here](../P07-Battle-Arena) to move onto the next section.
