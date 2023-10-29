@@ -16,19 +16,19 @@ class Hero:
 
     def add_ability(self, ability):
         pass
-    
+
     def attack(self):
         pass
-    
+
     def defend(self, incoming_damage: int):
         pass
-    
+
     def take_damage(self, damage: int):
         pass
-    
+
     def is_alive(self):
         pass
-    
+
     def fight(self, opponent):
         """Current Hero will take turns fighting the opponent hero passed in."""
         # total health
@@ -46,14 +46,6 @@ class Hero:
         else:
             # opponent wins
             print(f"{opponent.name} defeats {self.name}!")
-
-
-class Armor:
-    def __init__(self, name: str, max_block: int):
-        pass
-
-    def block(self):
-        pass
 
 
 # prevent the code from being run when the script is imported by another script
