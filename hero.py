@@ -58,32 +58,53 @@ class Hero:
     def take_damage(self, damage: int):
         """ Updates self.current_health to reflect the damage minus the defense."""
         impact = damage - self.defend()
-        print(impact)
         if impact <= 0:
+        # is defense greater than damage
             return
         else:
+        # damage greater than defense, reduce current_health
             self.current_health -= impact
 
     def is_alive(self):
-        pass
+        """ Return True or False depending on whether the hero is alive or not. """
+        if self.current_health > 0:
+            return True
+        else:
+            return False
 
     def fight(self, opponent):
         """Current Hero will take turns fighting the opponent hero passed in."""
-        # total health
-        total_p = self.starting_health + opponent.starting_health
-        # self probability
-        self_p = self.starting_health / total_p
-        # opponent probability
-        opponent_p = opponent.starting_health / total_p
-        # outcome
-        outcome = random.uniform(0, 1)
+        # check if at least one hero has abilities. If no hero has abilities, print "Draw"
+        if (len(self.abilities) < 1) or (len(opponent.abilities) < 1):
+            print("Draw")
+            return
+        
+        # start the fighting until a hero has won
+        while self.is_alive() or opponent.is_alive():
+            opponent.take_damage(self.attack())
+            if not opponent.is_alive():
+                print(f"{self.name} won!")
+                return
+            self.take_damage(opponent.attack())
+            if not self.is_alive():
+                print(f"{opponent.name} won!")
+                return
+        
+        # # total health
+        # total_p = self.starting_health + opponent.starting_health
+        # # self probability
+        # self_p = self.starting_health / total_p
+        # # opponent probability
+        # opponent_p = opponent.starting_health / total_p
+        # # outcome
+        # outcome = random.uniform(0, 1)
 
-        if outcome <= self_p:
-            # self wins
-            print(f"{self.name} defeats {opponent.name}!")
-        else:
-            # opponent wins
-            print(f"{opponent.name} defeats {self.name}!")
+        # if outcome <= self_p:
+        #     # self wins
+        #     print(f"{self.name} defeats {opponent.name}!")
+        # else:
+        #     # opponent wins
+        #     print(f"{opponent.name} defeats {self.name}!")
 
 
 # prevent the code from being run when the script is imported by another script
@@ -91,25 +112,31 @@ if __name__ == "__main__":
     # create abilities
     throw_kunai_attack = Ability("Throw Kunai", 50)
     rasengan_attack = Ability("Rasengan", 90)
+    chidori_attack = Ability("Chidori", 50)
+    
     # create armors
     shadow_clone_armor = Armor("Shadow Clone", 50)
     substitution_armor = Armor("Substitution", 100)
-    # create hero
+    
+    # create naruto
     naruto = Hero("Naruto Uzumaki", 100)
-    # add abilities
+    
+    # add naruto abilities
     naruto.add_ability(throw_kunai_attack)
     naruto.add_ability(rasengan_attack)
-    # add armors
+    # add naruto armors
     naruto.add_armor(shadow_clone_armor)
     naruto.add_armor(substitution_armor)
     
-    # print(naruto.abilities)
-    # print(naruto.armors)
+    # create sasuke
+    sasuke = Hero("Sasuke Uchiha", 80)
     
-    print(naruto.current_health)
-    print("Attack Value:", naruto.attack())
-    print("Defend Value:", naruto.defend())
-    naruto.take_damage(30)
-    print(naruto.current_health)
-    # sasuke = Hero("Sasuke Uchiha", 80)
-    # sasuke.fight(naruto)
+    # add sasuke abilities
+    sasuke.add_ability(throw_kunai_attack)
+    sasuke.add_ability(chidori_attack)
+    # add sasuke armors
+    sasuke.add_armor(shadow_clone_armor)
+    sasuke.add_armor(substitution_armor)
+    
+    # FIGHT
+    sasuke.fight(naruto)
