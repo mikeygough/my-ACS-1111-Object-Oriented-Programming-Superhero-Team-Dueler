@@ -1,5 +1,6 @@
 from ability import Ability
 from armor import Armor
+from weapon import Weapon
 import random
 
 
@@ -34,10 +35,10 @@ class Hero:
             total_damage += ability.attack()
 
         return total_damage
-    
+
     def add_armor(self, armor):
         """Add ability to armors list"""
-        
+
         self.armors.append(armor)
 
     def defend(self):
@@ -49,24 +50,25 @@ class Hero:
             return total_block
         else:
             for armor in self.armors:
-                 total_block += armor.block()
+                total_block += armor.block()
         return total_block
-        
-    # def defend(self, incoming_damage: int):
-    #     pass
 
     def take_damage(self, damage: int):
-        """ Updates self.current_health to reflect the damage minus the defense."""
+        """Updates self.current_health to reflect the damage minus the defense."""
         impact = damage - self.defend()
         if impact <= 0:
-        # is defense greater than damage
+            # is defense greater than damage
             return
         else:
-        # damage greater than defense, reduce current_health
+            # damage greater than defense, reduce current_health
             self.current_health -= impact
 
+    def add_weapon(self, weapon):
+        """Add eapon to self.abilities"""
+        self.abilities.append(weapon)
+
     def is_alive(self):
-        """ Return True or False depending on whether the hero is alive or not. """
+        """Return True or False depending on whether the hero is alive or not."""
         if self.current_health > 0:
             return True
         else:
@@ -78,7 +80,7 @@ class Hero:
         if (len(self.abilities) < 1) or (len(opponent.abilities) < 1):
             print("Draw")
             return
-        
+
         # start the fighting until a hero has won
         while self.is_alive() or opponent.is_alive():
             opponent.take_damage(self.attack())
@@ -89,54 +91,43 @@ class Hero:
             if not self.is_alive():
                 print(f"{opponent.name} won!")
                 return
-        
-        # # total health
-        # total_p = self.starting_health + opponent.starting_health
-        # # self probability
-        # self_p = self.starting_health / total_p
-        # # opponent probability
-        # opponent_p = opponent.starting_health / total_p
-        # # outcome
-        # outcome = random.uniform(0, 1)
-
-        # if outcome <= self_p:
-        #     # self wins
-        #     print(f"{self.name} defeats {opponent.name}!")
-        # else:
-        #     # opponent wins
-        #     print(f"{opponent.name} defeats {self.name}!")
 
 
 # prevent the code from being run when the script is imported by another script
 if __name__ == "__main__":
-    # create abilities
-    throw_kunai_attack = Ability("Throw Kunai", 50)
-    rasengan_attack = Ability("Rasengan", 90)
-    chidori_attack = Ability("Chidori", 50)
-    
-    # create armors
-    shadow_clone_armor = Armor("Shadow Clone", 50)
-    substitution_armor = Armor("Substitution", 100)
-    
-    # create naruto
-    naruto = Hero("Naruto Uzumaki", 100)
-    
-    # add naruto abilities
-    naruto.add_ability(throw_kunai_attack)
-    naruto.add_ability(rasengan_attack)
-    # add naruto armors
-    naruto.add_armor(shadow_clone_armor)
-    naruto.add_armor(substitution_armor)
-    
-    # create sasuke
-    sasuke = Hero("Sasuke Uchiha", 80)
-    
-    # add sasuke abilities
-    sasuke.add_ability(throw_kunai_attack)
-    sasuke.add_ability(chidori_attack)
-    # add sasuke armors
-    sasuke.add_armor(shadow_clone_armor)
-    sasuke.add_armor(substitution_armor)
-    
-    # FIGHT
-    sasuke.fight(naruto)
+    hero = Hero("Wonder Woman")
+    weapon = Weapon("Lasso of Truth", 90)
+    hero.add_weapon(weapon)
+    print(hero.attack())
+
+    # # create abilities
+    # throw_kunai_attack = Ability("Throw Kunai", 50)
+    # rasengan_attack = Ability("Rasengan", 90)
+    # chidori_attack = Ability("Chidori", 50)
+
+    # # create armors
+    # shadow_clone_armor = Armor("Shadow Clone", 50)
+    # substitution_armor = Armor("Substitution", 100)
+
+    # # create naruto
+    # naruto = Hero("Naruto Uzumaki", 100)
+
+    # # add naruto abilities
+    # naruto.add_ability(throw_kunai_attack)
+    # naruto.add_ability(rasengan_attack)
+    # # add naruto armors
+    # naruto.add_armor(shadow_clone_armor)
+    # naruto.add_armor(substitution_armor)
+
+    # # create sasuke
+    # sasuke = Hero("Sasuke Uchiha", 80)
+
+    # # add sasuke abilities
+    # sasuke.add_ability(throw_kunai_attack)
+    # sasuke.add_ability(chidori_attack)
+    # # add sasuke armors
+    # sasuke.add_armor(shadow_clone_armor)
+    # sasuke.add_armor(substitution_armor)
+
+    # # FIGHT
+    # sasuke.fight(naruto)
