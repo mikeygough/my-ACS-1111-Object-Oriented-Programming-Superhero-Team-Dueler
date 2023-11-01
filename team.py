@@ -22,3 +22,14 @@ class Team():
     def view_all_heroes(self):
         """ Prints out all heroes to the console. """
         [print(hero.name) for hero in self.heroes]
+        
+    def stats(self):
+        """ Print team statistics """
+        for hero in self.heroes:
+            kd = hero.kills / hero.deaths
+            print(f"{hero.name} Kill/Deaths:{kd}")
+            
+    def revive_heroes(self):
+        """ Reset all heroes health to starting_health """
+        for hero in self.heroes:
+            hero.current_health = hero.starting_health

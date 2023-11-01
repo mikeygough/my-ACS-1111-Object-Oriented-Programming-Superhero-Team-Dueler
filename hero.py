@@ -20,6 +20,8 @@ class Hero:
         self.current_health = starting_health
         self.abilities = list()
         self.armors = list()
+        self.deaths = 0
+        self.kills = 0
 
     def add_ability(self, ability):
         """Add ability to abilities list"""
@@ -86,11 +88,23 @@ class Hero:
             opponent.take_damage(self.attack())
             if not opponent.is_alive():
                 print(f"{self.name} won!")
+                self.add_kill(1)
+                opponent.add_deaths(1)
                 return
             self.take_damage(opponent.attack())
             if not self.is_alive():
                 print(f"{opponent.name} won!")
+                opponent.add_kill(1)
+                self.add_deaths(1)
                 return
+            
+    def add_kill(self, num_kills: int):
+        """ Update self.kills by num_kills amount """
+        self.kills += num_kills
+        
+    def add_deaths(self, num_deaths: int):
+        """ Update self.deaths by num_deaths amount """
+        self.deaths += num_deaths
 
 
 # prevent the code from being run when the script is imported by another script
