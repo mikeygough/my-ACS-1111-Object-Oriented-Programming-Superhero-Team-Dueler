@@ -76,35 +76,35 @@ class Hero:
         else:
             return False
 
+    def add_kill(self, num_kills):
+        """Update self.kills by num_kills amount"""
+        self.kills += num_kills
+
+    def add_deaths(self, num_deaths):
+        """Update self.deaths by num_deaths amount"""
+        self.deaths += num_deaths
+
     def fight(self, opponent):
         """Current Hero will take turns fighting the opponent hero passed in."""
         # check if at least one hero has abilities. If no hero has abilities, print "Draw"
-        if (len(self.abilities) < 1) or (len(opponent.abilities) < 1):
+        if (len(self.abilities) < 1) and (len(opponent.abilities) < 1):
             print("Draw")
             return
 
         # start the fighting until a hero has won
-        while self.is_alive() or opponent.is_alive():
+        while self.is_alive() and opponent.is_alive():
             opponent.take_damage(self.attack())
             if not opponent.is_alive():
-                print(f"{self.name} won!")
                 self.add_kill(1)
                 opponent.add_deaths(1)
+                print(f"{self.name} won!")
                 return
             self.take_damage(opponent.attack())
             if not self.is_alive():
-                print(f"{opponent.name} won!")
                 opponent.add_kill(1)
                 self.add_deaths(1)
+                print(f"{opponent.name} won!")
                 return
-            
-    def add_kill(self, num_kills: int):
-        """ Update self.kills by num_kills amount """
-        self.kills += num_kills
-        
-    def add_deaths(self, num_deaths: int):
-        """ Update self.deaths by num_deaths amount """
-        self.deaths += num_deaths
 
 
 # prevent the code from being run when the script is imported by another script
